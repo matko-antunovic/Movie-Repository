@@ -4,15 +4,21 @@ import {IMAGE_BASE_URL, POSTER_SIZE} from "../../../config";
 import MovieThumb from "../MovieThumb/MovieThumb"
 import Actor from "../Actor/Actor"
 
+
+
+
 const FourColGrid = (props) => {
     let movie;
-    if(props.movies){   movie=props.movies.map((element,i)=>{
-        return  <div key={i} className="rmdb-grid-element"> <MovieThumb
+    if(props.movies){movie=props.movies.slice(0,9).map((element,i)=>{
+        return  (
+        <div key={i} className="rmdb-grid-element">
+        <MovieThumb
         clickable={true}
         image={element.poster_path ? `${IMAGE_BASE_URL}${POSTER_SIZE}${element.poster_path}` : "./images/no_image.jpg"}
         movieId={element.id}
         movieName={element.original_title}
-        /></div>
+        />
+        </div>)
     } )
 } else{
    movie=props.actors.map((el,i)=>{

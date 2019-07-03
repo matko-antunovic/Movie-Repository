@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 import "./Slider.css"
+
 
 export default class CenterMode extends Component {
   render() {
@@ -13,46 +16,23 @@ export default class CenterMode extends Component {
       slidesToShow: 4,
       speed: 500
     };
+
+
+    const {movies}=this.props
+
+
+
     return (
       <div className="container">
-        <h2 style={{textAlign:"center"}}>Center Mode</h2>
         <Slider {...settings} >
-          <div>
-            <h3>1</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
-          <div>
-            <h3>2</h3>
-          </div>
-          <div>
-            <h3>3</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
-          <div>
-            <h3>4</h3>
-          </div>
-          <div>
-            <h3>5</h3>
-          </div>
-          <div>
-            <h3>6</h3>
-          </div>
+          {movies &&
+          movies.map(movie=>(
+            <figure key={movie.id} className="h-carousel-item">
+            <figcaption>
+              <h5 className="truncate truncate-small">{movie.title}</h5>
+            </figcaption>
+          </figure>
+          ))}
         </Slider>
       </div>
     );

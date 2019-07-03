@@ -1,11 +1,11 @@
 .container{
-    margin:3rem auto;
-    background-color: red;
+  margin:3rem auto;
+  background-color: limegreen;
+  width:90%;
 }
 
 .slick-next,
 .slick-prev {
-  top: 105px;
   color: initial !important;
   background: rgba(0, 0, 0, 0.7);
   border: 0;
@@ -19,7 +19,6 @@
 .slick-next:active,
 .slick-next:visited,
 .slick-prev:link,
-.slick-arrow,
 .slick-prev:hover,
 .slick-prev:active,
 .slick-prev:visited {
@@ -34,16 +33,27 @@
 .slick-next {
   right: 0px;
 }
-
 .slick-prev::before {
-  content: "<";
+  content: "\f104";
   color: #61dafb;
   font-weight: 900;
   font-size: 25px;
 }
 .slick-next::before {
-  content: ">";
+  content: "\f105";
   color: #61dafb;
   font-weight: 900;
   font-size: 25px;
+}
+
+.truncate {
+  width: 160px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: auto;
+  margin-right: auto;
+}
+.truncate-small {
+  width: 125px;
 }
