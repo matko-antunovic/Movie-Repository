@@ -1,7 +1,7 @@
 .container{
   margin:3rem auto;
-  background-color: limegreen;
-  width:90%;
+  background-color: rgba(0, 0, 0, 0.1);
+  width:82%;
 }
 
 .slick-next,
@@ -34,20 +34,20 @@
   right: 0px;
 }
 .slick-prev::before {
-  content: "\f104";
+  content: "<";
   color: #61dafb;
   font-weight: 900;
-  font-size: 25px;
+  font-size: 29px;
 }
 .slick-next::before {
-  content: "\f105";
+  content: ">";
   color: #61dafb;
   font-weight: 900;
-  font-size: 25px;
+  font-size: 29px;
 }
 
 .truncate {
-  width: 160px;
+  width: 260px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -55,5 +55,10 @@
   margin-right: auto;
 }
 .truncate-small {
-  width: 125px;
+  width: 225px;
+}
+
+.img{
+  width:250px;
+  height: 250px;
 }

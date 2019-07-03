@@ -9,15 +9,6 @@ import Spinner from "../elements/Spinner/Spinner";
 import CenterMode from "../elements/Slider/Slider"
  
 const Home = ({movies,heroImage,loading,currentPage,totalPages,searchTerm,searchMovies,loadMoreMovies}) => {
-  const settings = {
-    className: "center",
-    arrows:true,
-    centerMode: true,
-    infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 4,
-    speed: 500
-  };
 
   return(
     <div className="rmdb-home">
@@ -43,9 +34,6 @@ const Home = ({movies,heroImage,loading,currentPage,totalPages,searchTerm,search
           movies={movies}
         />
         {loading ? <Spinner /> : null}
-        {currentPage <= totalPages && !loading ? (
-          <LoadMoreBtn text="Load more" onClick={loadMoreMovies} />
-        ) : null}
         </div>
     </div>
   );
