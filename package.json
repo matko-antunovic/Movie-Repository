@@ -1,8 +1,7 @@
 {
   "name": "red",
   "version": "0.1.0",
-  "private": true,
-  "homepage": "http://matko-antunovic.github.io/moviebaseg",
+  "homepage": "http://matko-antunovic.github.io/moviebas",
   "dependencies": {
     "axios": "^0.19.0",
     "date-fns": "^1.30.1",
@@ -14,9 +13,11 @@
     "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "react-scripts": "^3.0.1",
+    "react-slick": "^0.24.0",
     "redux": "^4.0.0",
     "redux-form": "^8.2.1",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "slick-carousel": "^1.8.1"
   },
   "scripts": {
     "predeploy": "npm run build",

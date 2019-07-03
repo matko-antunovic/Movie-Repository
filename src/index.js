@@ -5,19 +5,24 @@ import App from "./components/App/App";
 import { BrowserRouter } from "react-router-dom";
 
 import { Provider } from "react-redux";
-import { createStore, applyMiddleware } from "redux";
-import reducers from "./reducers";
+import { createStore, applyMiddleware, compose } from "redux";
+import rootReducer from "./reducers/index";
 import thunk from "redux-thunk";
+import Slider from "./components/elements/Slider/Slider"
 
-// const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-const storeWithMiddleware = applyMiddleware(thunk)(
-  createStore
+
+const store=createStore(
+  rootReducer,
+  composeEnhancers(
+    applyMiddleware(thunk)
+  )
 );
 
 ReactDOM.render(
-  <Provider store={storeWithMiddleware(reducers)}>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+  <Provider store={store}>
+    <BrowserRouter>
       <App />
     </BrowserRouter>
   </Provider>,

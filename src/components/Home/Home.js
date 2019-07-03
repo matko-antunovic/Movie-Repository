@@ -6,6 +6,8 @@ import SearchBar from "../elements/SearchBar/SearchBar";
 import FourColGrid from "../elements/FourColGrid/FourColGrid";
 import LoadMoreBtn from "../elements/LoadMoreBtn/LoadMoreBtn";
 import Spinner from "../elements/Spinner/Spinner";
+import HorizontalMovie from "../elements/HorizontalMovie/HorizontalMovie";
+import Slider from "../elements/Slider/Slider"
 
  
 const Home = ({movies,heroImage,loading,currentPage,totalPages,searchTerm,searchMovies,loadMoreMovies}) => (
@@ -20,6 +22,7 @@ const Home = ({movies,heroImage,loading,currentPage,totalPages,searchTerm,search
         <SearchBar search={searchMovies} />
       </div>
     ) : null}
+    <Slider/>
     <div className="rmdb-home-grid">
       <FourColGrid
         header={searchTerm ? "Search Result" : "Popular Movies"}
