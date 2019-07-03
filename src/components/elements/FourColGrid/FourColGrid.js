@@ -9,7 +9,7 @@ import Actor from "../Actor/Actor"
 
 const FourColGrid = (props) => {
     let movie;
-    if(props.movies){movie=props.movies.slice(0,9).map((element,i)=>{
+    if(props.movies){movie=props.movies.map((element,i)=>{
         return  (
         <div key={i} className="rmdb-grid-element">
         <MovieThumb

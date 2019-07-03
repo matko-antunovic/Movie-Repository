@@ -4,11 +4,10 @@ import {IMAGE_BASE_URL, BACKDROP_SIZE} from "../../config";
 import HeroImage from "../elements/HeroImage/HeroImage";
 import SearchBar from "../elements/SearchBar/SearchBar";
 import FourColGrid from "../elements/FourColGrid/FourColGrid";
-import LoadMoreBtn from "../elements/LoadMoreBtn/LoadMoreBtn";
 import Spinner from "../elements/Spinner/Spinner";
 import CenterMode from "../elements/Slider/Slider"
  
-const Home = ({movies,heroImage,loading,currentPage,totalPages,searchTerm,searchMovies,loadMoreMovies}) => {
+const Home = ({movies,heroImage,loading,searchTerm,searchMovies}) => {
 
   return(
     <div className="rmdb-home">

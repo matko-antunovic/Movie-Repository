@@ -11,32 +11,24 @@ export default class CenterMode extends Component {
     const settings = {
       className: "center",
       arrows:true,
-      infinite: true,
       centerPadding: "60px",
       slidesToShow: 8,
-      speed: 700
+      speed: 1000,
+      slidesToScroll: 2
     };
-
-
     const {movies}=this.props
-
-
-
     return (
-      <div className="container">
         <Slider {...settings} >
           {movies &&
           movies.map(movie=>(
-            <figure key={movie.id} >
-              <div>
-              <img src={`${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`} alt="img" /></div>
+            <figure key={movie.id} className="h-carousel-item">
+              <img src={`${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`} alt="img" className="img" />
             <figcaption>
               <h5 className="truncate truncate-small">{movie.title}</h5>
             </figcaption>
           </figure>
           ))}
         </Slider>
-      </div>
     );
   }
 }
