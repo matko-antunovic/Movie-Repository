@@ -5,8 +5,9 @@ export const GET_POPULAR_MOVIES = "GET_POPULAR_MOVIES";
 export const SEARCH_MOVIES = "SEARCH_MOVIES";
 export const LOAD_MORE_MOVIES = "LOAD_MORE_MOVIES";
 export const CLEAR_MOVIES = "CLEAR_MOVIES";
-
+export const GET_UPCOMING_MOVIES="GET_UPCOMING_MOVIES";
 export const SHOW_LOADING_SPINNER = "SHOW_LOADING_SPINNER";
+export const GET_ACTION_MOVIES = "GET_ACTION_MOVIES";
 
 export const getPopularMovies = () => async (dispatch, getState) => {
   const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
@@ -14,6 +15,26 @@ export const getPopularMovies = () => async (dispatch, getState) => {
 
   dispatch({
     type: GET_POPULAR_MOVIES,
+    payload: response.data
+  });
+};
+
+export const getUpcomingMovies = () => async (dispatch, getState) => {
+  const endpoint = `${API_URL}movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`;
+  const response = await axios(endpoint);
+
+  dispatch({
+    type: GET_UPCOMING_MOVIES,
+    payload: response.data
+  });
+};
+
+export const getActionMovies = () => async (dispatch, getState) => {
+  const endpoint =`${API_URL}discover/movie?api_key=${API_KEY}&language=en-US&page=1&with_genres=28`;
+  const response = await axios(endpoint);
+
+  dispatch({
+    type: GET_ACTION_MOVIES,
     payload: response.data
   });
 };

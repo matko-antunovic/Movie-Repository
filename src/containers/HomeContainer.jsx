@@ -1,18 +1,20 @@
 import React, { Component } from 'react'
 import {connect} from "react-redux";
 import Home from "../components/Home/Home"
-import{getPopularMovies,showLoadingSpinner,searchMovies,clearMovies,loadMoreMovies} from "../actions/homeActions"
+import{getPopularMovies,getActionMovies,getUpcomingMovies,showLoadingSpinner,searchMovies,clearMovies,loadMoreMovies} from "../actions/homeActions"
 
 
 class HomeContainer extends Component {
 
     componentDidMount(){
-        this.getMovies();
+       this.getMovies();
     }
 
     getMovies=()=>{
        this.props.showLoadingSpinner();
        this.props.getPopularMovies(); 
+       this.props.getUpcomingMovies();
+       this.props.getActionMovies();
     }
 
     searchMovies=(searchTerm)=>{
@@ -23,7 +25,6 @@ class HomeContainer extends Component {
 
     loadMoreMovies=()=>{
         const {searchTerm,currentPage}=this.props.home;
-
         this.props.showLoadingSpinner();
         this.props.loadMoreMovies(searchTerm,currentPage)
     }
@@ -47,6 +48,8 @@ const mapStateToProps=(state)=>{
 
 const mapDispatchToProps=(dispatch)=>({
     getPopularMovies:()=>{ dispatch(getPopularMovies())},
+    getUpcomingMovies:()=>{dispatch(getUpcomingMovies())},
+    getActionMovies:()=>{dispatch(getActionMovies())},
     showLoadingSpinner:()=>{ dispatch(showLoadingSpinner())},
     searchMovies:(searchTerm)=>{ dispatch(searchMovies(searchTerm))},
     clearMovies:()=>{ dispatch(clearMovies())},

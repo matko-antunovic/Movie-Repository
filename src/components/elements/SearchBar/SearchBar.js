@@ -4,20 +4,21 @@ import "./SearchBar.css";
 
 class SearchBar extends Component {
     state={
-        value:""
+        search:""
     }
     
     timeout=null;
 
 
     handleInput=(evt)=>{
+        evt.preventDefault();
         this.setState({
-            value:evt.target.value
+            search:evt.target.value
         })
         clearTimeout(this.timeout);
 
         this.timeout=setTimeout(()=> {
-            this.props.search(this.state.value);
+            this.props.search(this.state.search);
         },500)
     }
 
@@ -30,7 +31,8 @@ class SearchBar extends Component {
                  type="text"
                 className="rmdb-searchbar-input"
                 onChange={this.handleInput}
-                value={this.state.value}
+                value={this.state.search}
+                placeholder="Search Movies"
                 />
                 </div>
             </div>

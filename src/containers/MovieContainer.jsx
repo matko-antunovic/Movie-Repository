@@ -11,13 +11,10 @@ class MovieContainer extends Component {
   
     }
 
-    
-
     getMovie=movieId=>{
         this.props.clearMovie();
         this.props.showLoadingSpinner();
         this.props.getMovie(movieId);
-        
     }
 
     render() {

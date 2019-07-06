@@ -8,51 +8,5 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 20px;
-}
-.container{
-  margin:3rem auto;
-  background-color: limegreen;
-  width:90%;
-}
-
-.slick-next,
-.slick-prev {
-  color: initial !important;
-  background: rgba(0, 0, 0, 0.7);
-  border: 0;
-  height: 210px;
-  width: 35px;
-  z-index: 1;
-}
-
-.slick-next:link,
-.slick-next:hover,
-.slick-next:active,
-.slick-next:visited,
-.slick-prev:link,
-.slick-prev:hover,
-.slick-prev:active,
-.slick-prev:visited {
-  background: rgba(0, 0, 0, 0.8);
-}
-.slick-slide.slick-current .h-carousel-item img {
-  border: solid 2px #61dafb;
-}
-.slick-prev {
-  left: 0px;
-}
-.slick-next {
-  right: 0px;
-}
-.slick-prev::before {
-  content: "\f104";
-  color: #61dafb;
-  font-weight: 900;
-  font-size: 25px;
-}
-.slick-next::before {
-  content: "\f105";
-  color: #61dafb;
-  font-weight: 900;
-  font-size: 25px;
+  
 }

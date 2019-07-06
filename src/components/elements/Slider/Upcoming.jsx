@@ -7,7 +7,7 @@ import {IMAGE_BASE_URL,POSTER_SIZE} from "../../../config"
 import {Link} from "react-router-dom"
 
 
-export default class CenterMode extends Component {
+export default class Upcoming extends Component {
   render() {
     const settings = {
       className: "center",
@@ -17,16 +17,16 @@ export default class CenterMode extends Component {
       speed: 1500,
       slidesToScroll: 2
     };
-    const {movies}=this.props
+    const {upcomingMovies}=this.props
     return (
         <React.Fragment>
-        <h3 className="title">Popular Movies</h3>
+        <h3 className="title">Upcoming Movies</h3>
         <Slider {...settings} >
-          {movies &&
-          movies.map(movie=>(
+          {upcomingMovies &&
+          upcomingMovies.map(movie=>(
             <figure key={movie.id} className="h-carousel-item">
               <Link to={{pathname:`/${movie.id}`, movieName:`${movie.original_title}`}}>
-              <img src={`${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`} alt="NOTH" className="img" />
+              <img src={`${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`} alt="img" className="img" />
               </Link>
             <figcaption>
               <h5 className="truncate truncate-small">{movie.title}</h5>
