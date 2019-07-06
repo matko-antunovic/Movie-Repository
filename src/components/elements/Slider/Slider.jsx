@@ -17,13 +17,13 @@ export default class CenterMode extends Component {
       speed: 1500,
       slidesToScroll: 2
     };
-    const {movies}=this.props
+    const {movies,title,upcomingMovies, actionMovies, comedyMovies}=this.props
     return (
         <React.Fragment>
-        <h3 className="title">Popular Movies</h3>
+        <h3 className="title">{title}</h3>
         <Slider {...settings} >
-          {movies &&
-          movies.map(movie=>(
+          {(movies || upcomingMovies || actionMovies || comedyMovies) &&
+          (movies || upcomingMovies || actionMovies || comedyMovies).map(movie=>(
             <figure key={movie.id} className="h-carousel-item">
               <Link to={{pathname:`/${movie.id}`, movieName:`${movie.original_title}`}}>
               <img src={`${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`} alt="NOTH" className="img" />

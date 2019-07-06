@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from "react-redux";
 import Home from "../components/Home/Home"
-import{getPopularMovies,getActionMovies,getUpcomingMovies,showLoadingSpinner,searchMovies,clearMovies,loadMoreMovies} from "../actions/homeActions"
+import{getPopularMovies,getComedyMovies,getActionMovies,getUpcomingMovies,showLoadingSpinner,searchMovies,clearMovies,loadMoreMovies} from "../actions/homeActions"
 
 
 class HomeContainer extends Component {
@@ -15,6 +15,7 @@ class HomeContainer extends Component {
        this.props.getPopularMovies(); 
        this.props.getUpcomingMovies();
        this.props.getActionMovies();
+       this.props.getComedyMovies();
     }
 
     searchMovies=(searchTerm)=>{
@@ -36,6 +37,7 @@ class HomeContainer extends Component {
                  {...this.props.home}
                  searchMovies={this.searchMovies}
                  loadMoreMovies={this.loadMoreMovies}
+                 searchTerm={this.props.home.searchTerm}
                  />
             </div>
         )
@@ -49,6 +51,7 @@ const mapStateToProps=(state)=>{
 const mapDispatchToProps=(dispatch)=>({
     getPopularMovies:()=>{ dispatch(getPopularMovies())},
     getUpcomingMovies:()=>{dispatch(getUpcomingMovies())},
+    getComedyMovies:()=>{dispatch(getComedyMovies())},
     getActionMovies:()=>{dispatch(getActionMovies())},
     showLoadingSpinner:()=>{ dispatch(showLoadingSpinner())},
     searchMovies:(searchTerm)=>{ dispatch(searchMovies(searchTerm))},
