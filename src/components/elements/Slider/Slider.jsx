@@ -5,7 +5,6 @@ import "slick-carousel/slick/slick-theme.css";
 import "./Slider.css"
 import {IMAGE_BASE_URL,POSTER_SIZE} from "../../../config"
 import {Link} from "react-router-dom"
-import { stringLiteral } from "@babel/types";
 
 
 

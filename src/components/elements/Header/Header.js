@@ -1,6 +1,5 @@
 import React from 'react';
 import "./Header.css";
-import Cat from "../../reusables/Cat"
 import {Link} from "react-router-dom";
 
 const Header = () => {

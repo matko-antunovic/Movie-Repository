@@ -6,7 +6,6 @@ import SearchBar from "../elements/SearchBar/SearchBar";
 import FourColGrid from "../elements/FourColGrid/FourColGrid";
 import Spinner from "../elements/Spinner/Spinner";
 import CenterMode from "../elements/Slider/Slider";
-import Footer from "../Footer/Footer";
 
 const Home = ({
   movies,
@@ -53,7 +52,6 @@ const Home = ({
       </div>)
       }
 
-      { loading ? null : <Footer />}
     </div>
   );
 };

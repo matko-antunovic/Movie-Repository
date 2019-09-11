@@ -22,7 +22,10 @@ const FourColGrid = (props) => {
     } )
 } else{
    movie=props.actors.map((el,i)=>{
+       if(i<15){
         return <div key={i} className="rmdb-grid-element"> <Actor key={i} actor={el}/></div> 
+       }
+        return null
         }) 
 }
         

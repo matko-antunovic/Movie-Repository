@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../elements/Header/Header";
+import Footer from "../Footer/Footer"
 import HomeContainer from "../../containers/HomeContainer";
 import MovieContainer from "../../containers/MovieContainer";
 import NotFound from "../elements/NotFound/NotFound"
@@ -15,6 +16,7 @@ const App=()=>{
             <Route exact path="/:movieId" component={MovieContainer}/>
             <Route component={NotFound}/>
             </Switch>
+            <Footer/>
         </div>
 
     )
