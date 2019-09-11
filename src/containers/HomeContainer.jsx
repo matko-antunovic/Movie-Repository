@@ -7,11 +7,12 @@ import{getPopularMovies,getComedyMovies,getActionMovies,getUpcomingMovies,showLo
 class HomeContainer extends Component {
 
     componentDidMount(){
+        this.props.showLoadingSpinner();
        this.getMovies();
     }
 
     getMovies=()=>{
-       this.props.showLoadingSpinner();
+      
        this.props.getPopularMovies(); 
        this.props.getUpcomingMovies();
        this.props.getActionMovies();
@@ -32,7 +33,7 @@ class HomeContainer extends Component {
 
     render() {
         return (
-            <div>
+            <div className="home-container">
                 <Home
                  {...this.props.home}
                  searchMovies={this.searchMovies}

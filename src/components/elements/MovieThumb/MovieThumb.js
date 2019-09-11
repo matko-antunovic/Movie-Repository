@@ -9,8 +9,11 @@ const MovieThumb = ({image,movieId, movieName, clickable}) => {
             <Link to={{pathname:`/${movieId}`, movieName:`${movieName}`}}>
             <img src={image} alt="moviethumb" />
             </Link>
-            :
-            <img src={image} alt="moviethumb" />}
+            :(
+            <Link to={{pathname:`/${movieId}`, movieName:`${movieName}`}}>
+            <img src={image} alt="moviethumb" />
+            </Link>)}
+            
         </div>
     )
 }

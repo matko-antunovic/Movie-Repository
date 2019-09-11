@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+.rmdb-moviethumb:hover{
+  filter: brightness(.4)
+}
+
 .clickable {
   cursor: pointer;
 }

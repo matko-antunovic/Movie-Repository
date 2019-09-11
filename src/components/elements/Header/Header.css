@@ -14,19 +14,29 @@
   margin: 0 auto;
   box-sizing: border-box;
   overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.watchlist{
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: 'Abel', sans-serif;
+  cursor: pointer;
+}
+
+.watchlist:hover{
+  color: red;
 }
 
 .rmdb-logo {
-  width: 300px;
-  margin-top: 20px;
-  float: left;
+  width: 200px;
+  height: 25px;
+  object-fit: contain;
 }
 
-.rmdb-tmdb-logo {
-  width: 122px;
-  margin-top: 25px;
-  float: right;
-}
 
 @media screen and (max-width: 500px) {
   .rmdb-header-content {
@@ -45,3 +55,4 @@
     margin-top: 5px;
   }
 }
+

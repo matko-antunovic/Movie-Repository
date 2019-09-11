@@ -21,9 +21,11 @@ const Home = ({
 }) => {
 
   return (
+
     <div className="rmdb-home">
+      {loading ? <Spinner /> : null}
       {heroImage ? (
-        <div>
+        <div className="rmdb-home-component">
           <HeroImage
             image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${
               heroImage.backdrop_path
@@ -34,24 +36,24 @@ const Home = ({
           <SearchBar search={searchMovies} />
         </div>
       ) : null}
+      
       { searchTerm ? 
       <div className="rmdb-home-grid">
-      {loading ? <Spinner /> : null}
       <FourColGrid
         header={searchTerm ? "Search Result" : "Popular Movies"}
         loading={loading}
         movies={movies}
       />
     </div>
-      :(<div>
-      <CenterMode title="POPULAR MOVIES" movies={movies} />
-      <CenterMode title="UPCOMING MOVIES" upcomingMovies={upcomingMovies} />
-      <CenterMode title="ACTION MOVIES" actionMovies={actionMovies} />
-      <CenterMode title="COMEDY MOVIES" comedyMovies={comedyMovies} />
+      :(<div className="rmdb-home-component__slider-container">
+      <CenterMode title="POPULAR MOVIES" movies={movies} loading={loading}/>
+      <CenterMode title="UPCOMING MOVIES" upcomingMovies={upcomingMovies} loading={loading}/>
+      <CenterMode title="ACTION MOVIES" actionMovies={actionMovies} loading={loading}/>
+      <CenterMode title="COMEDY MOVIES" comedyMovies={comedyMovies} loading={loading}/>
       </div>)
       }
 
-      <Footer />
+      { loading ? null : <Footer />}
     </div>
   );
 };

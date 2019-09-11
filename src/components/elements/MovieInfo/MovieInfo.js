@@ -31,6 +31,7 @@ const MovieInfo = ({movie,directors}) => {
                    {directors.map((el,i)=> {
                        return <p key={i} className="rmdb-director">{el.name}</p>
                    })}
+                   <button className="rmdb-watchlist"> + ADD TO WATCHLIST</button>
                </div>
 
            </div>

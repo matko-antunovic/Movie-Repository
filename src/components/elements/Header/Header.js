@@ -1,5 +1,6 @@
 import React from 'react';
 import "./Header.css";
+import Cat from "../../reusables/Cat"
 import {Link} from "react-router-dom";
 
 const Header = () => {
@@ -8,8 +9,8 @@ const Header = () => {
          <div className="rmdb-header-content">
              <Link to="/">
              <img className="rmdb-logo" src="../images/reactMovie_logo.png" alt="rmdb-logo"/>
-             <img className="rmdb-tmdb-logo" src="../images/tmdb_logo.png" alt="tmdb-logo"/>
              </Link>
+            <span className="watchlist">My Watchlist</span>
          </div>
         </div>
     )

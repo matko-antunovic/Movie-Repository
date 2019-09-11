@@ -1,9 +1,16 @@
 .rmdb-movie {
-  margin-bottom: 100px;
+  padding-bottom: 100px;
+  background-color: #1c1c1c;
 }
 
 .rmdb-movie-grid {
   max-width: 1280px;
   margin: 0 auto;
   padding: 0 20px;
+  color: black;
+  
+}
+
+.rmdb-movie-actors__title{
+  color: rgba(243, 46, 46, 0.8);
 }

@@ -1,6 +1,6 @@
 .rmdb-home {
-  padding-bottom: 120px;
-  background-color: rgba(0, 0, 0, 0.91)
+  /* padding-bottom: 120px;
+  background-color: rgba(0, 0, 0, 0.91) */
 }
 
 
@@ -9,4 +9,15 @@
   margin: 0 auto;
   padding: 0 20px;
   
+}
+.rmdb-home-component__slider-container{
+ margin: 0 3rem;
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
+
+.home-container{
+ margin: 0;
 }
