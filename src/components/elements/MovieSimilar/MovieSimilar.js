@@ -10,7 +10,6 @@ const MovieSimilar = ({movie}) => {
             src={`${IMAGE_BASE_URL}${SMALL_SIZE}${movie.poster_path}`}
             alt={`./images/no_image.jpg`}
             />
-
             : null}
          
         </div>

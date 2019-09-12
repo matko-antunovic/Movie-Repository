@@ -34,6 +34,10 @@
   left: 0px;
 }
 
+.rmdb-movieinfo-thumb {
+  cursor: none;
+}
+
 .rmdb-movieinfo-text {
   font-family: Arial, Helvetica, sans-serif;
   height: 100%;
@@ -64,21 +68,6 @@
   line-height: 26px;
 }
 
-.rmdb-watchlist{
-  background-color: rgba(243, 46, 46, 0.8);
-  outline: none;
-  cursor: pointer;
-  padding: 1rem;
-  border: none;
-  color: white;
-  font-size: .9rem;
-  font-weight: 600;
-  margin-top: 2rem;
-}
-
-.rmdb-watchlist:hover{
-  filter: brightness(.9);
-}
 
 .rmdb-rating {
   width: 250px;

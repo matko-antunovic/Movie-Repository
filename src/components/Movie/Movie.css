@@ -33,6 +33,7 @@
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  background-color: black;
 }
 
 h3{
@@ -43,26 +44,26 @@ h3{
  font-style: italic;
  font-size: 1.19rem;
  font-family: 'Abel', sans-serif;
+ margin-top: 2rem;
+ margin-right: 1rem;
 }
 
 .rmdb-movie-similar{
   width: 100%;
   height: 25rem;
   overflow: hidden;
-  margin-top: 5rem;
+  margin-top: 2rem;
   display: flex;
 }
 
 .rmdb-movie-similar__left-side{
-  max-width: 35%;
-
-  /* display: grid;
+  min-width: 30rem;
+  margin-right: 2rem;
+  display: grid;
   grid-template-columns: repeat(3,minmax(110px, 1fr));
 
   grid-template-rows: 1fr 1fr;
   grid-row-gap:.8rem;
-  padding: 1rem; */
- display: flex;
- flex-wrap: wrap;
- 
+  grid-column-gap: .5rem;
+  justify-items: center;
 }

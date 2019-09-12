@@ -1,15 +1,11 @@
 .movie-similar{
-   
-    height: 12rem;
-    width: 8.5rem;
+    height: 100%;
+    width: 100%;
     overflow: hidden;
-   
 }
 
 img{
     width: 100%;
     height: 100%;
-  
-    object-position: center;
-    object-fit: contain;
+
 }

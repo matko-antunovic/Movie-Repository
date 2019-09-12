@@ -8,7 +8,8 @@
 }
 
 .rmdb-moviethumb:hover{
-  filter: brightness(.4)
+  filter: brightness(.4);
+
 }
 
 .clickable {

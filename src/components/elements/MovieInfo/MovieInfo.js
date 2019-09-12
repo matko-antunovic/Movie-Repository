@@ -2,6 +2,7 @@ import React from 'react'
 import {IMAGE_BASE_URL, POSTER_SIZE, BACKDROP_SIZE} from "../../../config"
 import MovieThumb from "../MovieThumb/MovieThumb"
 import "./MovieInfo.css"
+import Add from "../../reusables/Add"
 
 const MovieInfo = ({movie,directors}) => {
     
@@ -12,7 +13,6 @@ const MovieInfo = ({movie,directors}) => {
         }}>
            <div className="rmdb-movieinfo-content">
                <div className="rmdb-movieinfo-thumb">
-              
                    <MovieThumb
                    image={movie.poster_path ? `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}` : "./images/no_image. jpg"}
                    clickable={false}
@@ -31,7 +31,7 @@ const MovieInfo = ({movie,directors}) => {
                    {directors.map((el,i)=> {
                        return <p key={i} className="rmdb-director">{el.name}</p>
                    })}
-                   <button className="rmdb-watchlist"> + ADD TO WATCHLIST</button>
+                   <Add/>
                </div>
 
            </div>
