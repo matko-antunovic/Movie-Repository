@@ -16,6 +16,11 @@
       opacity:1;
   }
 }
+.rmdb-movieinfo-text__title{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
 .rmdb-movieinfo-content {
   max-width: 1280px;

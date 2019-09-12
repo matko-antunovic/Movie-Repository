@@ -19,7 +19,11 @@ const MovieInfo = ({movie,directors}) => {
                    />
                </div>
                <div className="rmdb-movieinfo-text">
-                   <h1>{movie.title}</h1>
+                   <div className="rmdb-movieinfo-text__title">
+                        <h1>{movie.title}</h1> 
+                        <Add/>
+                        </div>
+                  
                    <h3>PLOT</h3>
                    <p>{movie.overview}</p>
                    <h3>IMDB RATING</h3>
@@ -31,7 +35,7 @@ const MovieInfo = ({movie,directors}) => {
                    {directors.map((el,i)=> {
                        return <p key={i} className="rmdb-director">{el.name}</p>
                    })}
-                   <Add/>
+                  
                </div>
 
            </div>

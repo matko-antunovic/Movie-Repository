@@ -19,6 +19,13 @@ class MovieContainer extends Component {
         this.props.getMovieReview(movieId);
     }
 
+    componentDidUpdate(prevProps) {
+        const {movieId}=this.props.match.params;
+        if (this.props.match.params !== prevProps.match.params) {
+         this.getMovie(movieId)
+        }
+      }
+
     render() {
       
         return (

@@ -1,0 +1,27 @@
+
+.small-info__details{
+    margin-right: 1rem;
+}
+
+.small-info__details--text{
+    font-size: 1rem;
+}
+
+.small-info__image{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin: .65rem 2rem .5rem 1rem;
+}
+
+.imgsmall{
+    height:80%;
+    width: 200px;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+h2{
+    cursor: pointer;
+}

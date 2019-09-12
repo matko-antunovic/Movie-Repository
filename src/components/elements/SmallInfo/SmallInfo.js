@@ -1,30 +1,14 @@
-import React from 'react'
-import {IMAGE_BASE_URL,POSTER_SIZE} from "../../../config"
-import "./SmallInfo.css"
-import Add from "../../reusables/Add"
+import React from "react";
+import "./SmallInfo.css";
+import { withRouter } from "react-router-dom";
+import HoveredMovie from "../HoveredMovie/HoveredMovie";
 
-const SmallInfo = ({movie}) => {
-    return (
-        <div className="small-info">
+const SmallInfo = ({ movieSimilar0, hovered, history, match }) => {
+  return (
+    <React.Fragment>
+      {(hovered && hovered.id != match.params.movieId) ? <HoveredMovie movie={hovered} history={history} /> : <HoveredMovie movie={movieSimilar0} history={history} /> }
+    </React.Fragment>
+  );
+};
 
-            <div className="small-info__image">
-            <img className="imgsmall" src={ `${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`} alt="noIMG"/>
-            <Add/>
-            </div>
-
-
-            <div className="small-info__details">
-            <h2>{movie.original_title}</h2>
-            <p className="small-info__details--text">{movie.overview}</p>
-            <p>IMDB RATING</p>
-            <div className="rmdb-rating">
-                       <meter min="0" max="100" optimum="100" low="40" high="75" value={movie.vote_average *10}/>
-                       <p className="rmdb-score">{movie.vote_average}</p>
-                   </div>
-            
-            </div>
-        </div>
-    )
-}
-
-export default SmallInfo
+export default withRouter(SmallInfo);

@@ -39,7 +39,8 @@ const movieReducer = (state = initialState, action) => {
         ...state,
         movie: null,
         actors: null,
-        directors: []
+        directors: [],
+        similarMovies:[]
       };
 
     case GET_SIMILAR:
