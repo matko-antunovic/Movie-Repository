@@ -31,7 +31,8 @@ class Movie extends React.Component {
       loading,
       movieId,
       review,
-      similar
+      similar,
+      addToWatchlist
     } = this.props;
     const limitText = (text, limit) => {
       const newtext = [];
@@ -55,7 +56,7 @@ class Movie extends React.Component {
         {movie ? (
           <div>
             <Navigation movie={movie.original_title} />
-            <MovieInfo movie={movie} directors={directors} />
+            <MovieInfo movie={movie} directors={directors} addToWatchlist={addToWatchlist} />
             <MovieInfoBar
               time={movie.runtime}
               budget={movie.budget}
@@ -101,7 +102,7 @@ class Movie extends React.Component {
                   })}
                 </div>
                 <div className="rmdb-movie-similar__right-side">
-                  <SmallInfo movieSimilar0={similar[0]} hovered={this.state.movieSimilar} />
+                  <SmallInfo  movieSimilar0={similar[0]} hovered={this.state.movieSimilar} />
                 </div>
               </div>
             ) : null}
@@ -115,4 +116,5 @@ class Movie extends React.Component {
   }
 }
 
-export default Movie;
+
+export default (Movie);

@@ -1,8 +1,8 @@
 import React from "react";
 import "./Add.css"
 
-const Add=()=>{
-   return <button className="rmdb-watchlist"> + ADD TO WATCHLIST</button>
+const Add=({addToWatchlist})=>{
+   return <button onClick={addToWatchlist} className="rmdb-watchlist"> + ADD TO WATCHLIST</button>
 }
 
-export default Add;
+export default (Add);

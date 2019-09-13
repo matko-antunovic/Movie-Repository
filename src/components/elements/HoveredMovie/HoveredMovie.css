@@ -8,17 +8,14 @@
 }
 
 .small-info__image{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
+
     margin: .65rem 2rem .5rem 1rem;
 }
 
 .imgsmall{
-    height:80%;
+    height:85%;
     width: 200px;
-    object-fit: cover;
+    object-fit: contain;
     cursor: pointer;
 }
 

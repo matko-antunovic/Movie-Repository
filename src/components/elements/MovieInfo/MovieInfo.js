@@ -4,7 +4,7 @@ import MovieThumb from "../MovieThumb/MovieThumb"
 import "./MovieInfo.css"
 import Add from "../../reusables/Add"
 
-const MovieInfo = ({movie,directors}) => {
+const MovieInfo = ({movie,directors,addToWatchlist}) => {
     
     return (
         <div className="rmdb-movieinfo"
@@ -21,7 +21,7 @@ const MovieInfo = ({movie,directors}) => {
                <div className="rmdb-movieinfo-text">
                    <div className="rmdb-movieinfo-text__title">
                         <h1>{movie.title}</h1> 
-                        <Add/>
+                        <Add addToWatchlist={()=>addToWatchlist(movie)}/>
                         </div>
                   
                    <h3>PLOT</h3>

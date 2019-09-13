@@ -5,6 +5,8 @@ import {
   GET_SIMILAR,
   GET_TRAILERS,
   GET_REVIEW,
+  ADD_MOVIE,
+  REMOVE_MOVIE
 } from "../actions/movieActions";
 
 const initialState = {
@@ -14,7 +16,8 @@ const initialState = {
   loading: false,
   similarMovies:[],
   trailers:null,
-  review:{}
+  review:{},
+  watchlist:[]
 };
 
 const movieReducer = (state = initialState, action) => {
@@ -57,6 +60,17 @@ const movieReducer = (state = initialState, action) => {
       return{
         ...state,
         review:action.payload
+      }
+    case ADD_MOVIE:
+      return{
+        ...state,
+        watchlist:[...state.watchlist, action.payload]
+      }
+
+    case REMOVE_MOVIE:
+      return{
+        ...state,
+        watchlist:state.watchlist.filter(w=>w.id !== action.payload)
       }
     default:
       return state;

@@ -1,9 +1,9 @@
 import React from 'react'
 import "./HoveredMovie.css"
 import {IMAGE_BASE_URL,POSTER_SIZE} from "../../../config"
-import Add from "../../reusables/Add";
 
-const HoveredMovie = ({movie,movie0,history}) => {
+
+const HoveredMovie = ({movie,history}) => {
     return (
         <div className="small-info">
         <div onClick={()=>history.push(`/${movie.id}`)} className="small-info__image">
@@ -12,7 +12,7 @@ const HoveredMovie = ({movie,movie0,history}) => {
            src={`${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`}
            alt="noIMG"
          />
-         <Add />
+
        </div>
  
        <div className="small-info__details">

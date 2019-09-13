@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from "react-redux";
 import Home from "../components/Home/Home"
+
 import{getPopularMovies,getComedyMovies,getActionMovies,getUpcomingMovies,showLoadingSpinner,searchMovies,clearMovies,loadMoreMovies} from "../actions/homeActions"
 
 
@@ -40,6 +41,7 @@ class HomeContainer extends Component {
                  loadMoreMovies={this.loadMoreMovies}
                  searchTerm={this.props.home.searchTerm}
                  />
+               
             </div>
         )
     }

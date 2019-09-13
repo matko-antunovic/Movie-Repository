@@ -7,6 +7,8 @@ export const CLEAR_MOVIE = "CLEAR_MOVIE";
 export const GET_SIMILAR = "GET_SIMILAR";
 export const GET_TRAILERS = "GET_TRAILERS";
 export const GET_REVIEW="GET_REVIEW"
+export const ADD_MOVIE="ADD_MOVIE"
+export const REMOVE_MOVIE="REMOVE_MOVIE"
 
 export const clearMovie = () => {
   return {
@@ -76,4 +78,20 @@ export const getMovieReview = movieId => async dispatch => {
     type: GET_REVIEW,
     payload: response.data.results[0]
   });
+};
+
+export const addToWatchlist=(movie)=>{
+
+  return{
+    type:ADD_MOVIE,
+    payload:movie
+  }
+}
+
+export const removeFromWatchlist = (id) => {
+
+  return {
+    type: REMOVE_MOVIE,
+    payload: id
+  };
 };

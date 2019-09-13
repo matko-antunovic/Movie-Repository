@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {connect} from "react-redux"
-import { getMovie,showLoadingSpinner,clearMovie,getSimilarMovies,getMovieVideo,getMovieReview} from "../actions/movieActions"
+import { getMovie,showLoadingSpinner,clearMovie,getSimilarMovies,getMovieVideo,getMovieReview,addToWatchlist} from "../actions/movieActions"
 import Movie from "../components/Movie/Movie"
 
 class MovieContainer extends Component {
@@ -27,7 +27,6 @@ class MovieContainer extends Component {
       }
 
     render() {
-      
         return (
             <div>
                 <Movie 
@@ -38,6 +37,7 @@ class MovieContainer extends Component {
                 movieId={this.props.movieId}
                 review={this.props.review}
                 similar={this.props.movie.similarMovies}
+                addToWatchlist={this.props.addToWatchlist}
                 />
             </div>
         )
@@ -48,7 +48,8 @@ const mapStateToProps=state=>{
     return{
         movie:state.movie,
         movieId:state.movie.trailers,
-        review:state.movie.review
+        review:state.movie.review,
+        watchlist:state.movie.watchlist
     };
     
 }
@@ -58,7 +59,8 @@ const mapDispatchToProps=(dispatch)=>({
     clearMovie:()=>{ dispatch(clearMovie())},
     getSimilarMovies:(movieId)=>{dispatch(getSimilarMovies(movieId))},
     getMovieVideo:(movieId)=>{dispatch(getMovieVideo(movieId))},
-    getMovieReview:(movieId)=>{dispatch(getMovieReview(movieId))}
+    getMovieReview:(movieId)=>{dispatch(getMovieReview(movieId))},
+    addToWatchlist:(movie)=>{dispatch(addToWatchlist(movie))},
 })
 
 export default connect(mapStateToProps,mapDispatchToProps)(MovieContainer);
