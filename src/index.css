@@ -1,5 +1,21 @@
 body {
   margin: 0;
+  padding: 0;
   background-color: #1c1c1c;
   color: #fff;
+  width: 100%;
+  height: 100%;
+  box-sizing:border-box;
+  overflow-x: hidden;
 }
+
+html{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing:border-box;
+  overflow-x: hidden;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }

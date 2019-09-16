@@ -15,7 +15,13 @@ const SideCart = ({show,onClose,movies,history,removeFromWatchlist}) => {
         <div className={`sidecart ${show ? "show" : null} `}>
             <div className="sidecart-elements">
                 <span className="close" onClick={onClose}>&#9932;</span>
-                {movies.map((movie,i)=><div className="sidecart-element" key={i}><WatchlistElement removeFromWatchlist={removeFromWatchlist} handleClick={handleClick} movie={movie} /></div>)}
+                {movies.map((movie,i)=>
+                <div className="sidecart-element" key={i}>
+                    <WatchlistElement
+                     removeFromWatchlist={removeFromWatchlist}
+                      handleClick={handleClick}
+                       movie={movie}/>
+                       </div>)}
                 
             </div>
         </div>

@@ -22,7 +22,7 @@ class Header extends React.Component {
                  <Link to="/">
                  <img className="rmdb-logo" src="../images/reactMovie_logo.png" alt="rmdb-logo"/>
                  </Link>
-                <span onClick={()=>{this.setState({show:!this.state.show})}} className="watchlist">My Watchlist</span>  
+                <span onClick={()=>{this.setState({show:!this.state.show})}}  className="watchlist">My Watchlist</span>  
              </div>
             </div>
              <SideCart show={this.state.show} onClose={this.onClose}/>

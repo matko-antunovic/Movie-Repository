@@ -6,6 +6,7 @@
 
 .movie-similar:hover{
    cursor: pointer;
+   filter: brightness(.6);
 }
 
 img{

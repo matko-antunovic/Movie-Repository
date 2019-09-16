@@ -1,6 +1,6 @@
 .sidecart{
     width: 300px;
-    min-height: 100%;
+    height: 100%;
     position: fixed;
     top:0;
     right: -300px;
@@ -8,7 +8,25 @@
     background-color: rgba(0, 0, 0, 0.9);
     color: #fff;
     transition: all 1s cubic-bezier(0.35, 0.82, 0.35, 1);
+    overflow-y: scroll;
 }
+
+.sidecart::-webkit-scrollbar-track {
+    border: 3px solid #000;
+    padding: 2px 0;
+    background-color: #404040;
+  }
+  
+  .sidecart::-webkit-scrollbar {
+    width: 7px;
+  }
+  
+  .sidecart::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #737272;
+    border: 1px solid #000;
+  }
 
 .show{
     position: fixed;
@@ -23,6 +41,8 @@
     font-size: 1.6rem;
     font-family: Arial, Helvetica, sans-serif;
     cursor: pointer;
+    color:rgba(243, 46, 46, 0.8);
+    font-weight: 900;
 }
 
 .sidecart-elements{

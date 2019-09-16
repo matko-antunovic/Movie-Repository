@@ -5,7 +5,7 @@ import HeroImage from "../elements/HeroImage/HeroImage";
 import SearchBar from "../elements/SearchBar/SearchBar";
 import FourColGrid from "../elements/FourColGrid/FourColGrid";
 import Spinner from "../elements/Spinner/Spinner";
-import CenterMode from "../elements/Slider/Slider";
+import FilterBar from "../elements/FilterBar/FilterBar"
 
 const Home = ({
   movies,
@@ -13,10 +13,8 @@ const Home = ({
   loading,
   searchTerm,
   searchMovies,
-  upcomingMovies,
-  actionMovies,
-  comedyMovies,
-  search
+  handleClick,
+  title
 }) => {
 
   return (
@@ -33,23 +31,25 @@ const Home = ({
             text={heroImage.overview}
           />
           <SearchBar search={searchMovies} />
+          <FilterBar handleClick={handleClick}/>
         </div>
       ) : null}
-      
+  
       { searchTerm ? 
       <div className="rmdb-home-grid">
+        
       <FourColGrid
-        header={searchTerm ? "Search Result" : "Popular Movies"}
+        header={searchTerm ? `Search Result: ${searchTerm}` : title ? title.toUpperCase() : "Popular Movies"}
         loading={loading}
         movies={movies}
       />
-    </div>
-      :(<div className="rmdb-home-component__slider-container">
-      <CenterMode title="POPULAR MOVIES" movies={movies} loading={loading}/>
-      <CenterMode title="UPCOMING MOVIES" upcomingMovies={upcomingMovies} loading={loading}/>
-      <CenterMode title="ACTION MOVIES" actionMovies={actionMovies} loading={loading}/>
-      <CenterMode title="COMEDY MOVIES" comedyMovies={comedyMovies} loading={loading}/>
-      </div>)
+
+    </div> 
+    :  <FourColGrid
+    header={searchTerm ? `Search Result: ${searchTerm}` : title ? `${title.charAt(0).toUpperCase() + title.slice(1)} Movies` : "Popular Movies"}
+    loading={loading}
+    movies={movies}
+  />
       }
 
     </div>

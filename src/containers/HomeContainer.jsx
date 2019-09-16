@@ -2,22 +2,43 @@ import React, { Component } from 'react'
 import {connect} from "react-redux";
 import Home from "../components/Home/Home"
 
-import{getPopularMovies,getComedyMovies,getActionMovies,getUpcomingMovies,showLoadingSpinner,searchMovies,clearMovies,loadMoreMovies} from "../actions/homeActions"
+import{getPopularMovies,getComedyMovies,getActionMovies,getUpcomingMovies,
+    showLoadingSpinner,searchMovies,clearMovies,loadMoreMovies,getHighestRated,getDramaMovies} from "../actions/homeActions"
 
 
 class HomeContainer extends Component {
+
+    state = {
+        choosen:null
+      };
+    
+      handleClick=(e)=>{
+          this.setState({choosen:e.target.name},()=>this.getMovies(this.state.choosen))
+      }
+    
 
     componentDidMount(){
         this.props.showLoadingSpinner();
        this.getMovies();
     }
 
-    getMovies=()=>{
-      
-       this.props.getPopularMovies(); 
-       this.props.getUpcomingMovies();
-       this.props.getActionMovies();
-       this.props.getComedyMovies();
+    getMovies=(state)=>{
+       
+        this.props.clearMovies();
+       if(state==="action"){
+        this.props.getActionMovies();
+       } else if(state==="comedy"){
+        this.props.getComedyMovies();
+       } else if(state==="upcoming"){
+        this.props.getUpcomingMovies();
+       }else if(state==="top rated"){
+        this.props.getHighestRated();
+       }
+       else if(state==="drama"){
+        this.props.getDramaMovies();
+       }else{
+           return this.props.getPopularMovies()
+       }
     }
 
     searchMovies=(searchTerm)=>{
@@ -33,6 +54,7 @@ class HomeContainer extends Component {
     }
 
     render() {
+        
         return (
             <div className="home-container">
                 <Home
@@ -40,8 +62,11 @@ class HomeContainer extends Component {
                  searchMovies={this.searchMovies}
                  loadMoreMovies={this.loadMoreMovies}
                  searchTerm={this.props.home.searchTerm}
+                 handleClick={this.handleClick}
+                 moviesToShow={this.props.home.moviesToShow}
+                 title={this.state.choosen}
                  />
-               
+               <button className="load-more" onClick={this.loadMoreMovies}>Load More</button>
             </div>
         )
     }
@@ -54,7 +79,9 @@ const mapStateToProps=(state)=>{
 const mapDispatchToProps=(dispatch)=>({
     getPopularMovies:()=>{ dispatch(getPopularMovies())},
     getUpcomingMovies:()=>{dispatch(getUpcomingMovies())},
+    getHighestRated:()=>{dispatch(getHighestRated())},
     getComedyMovies:()=>{dispatch(getComedyMovies())},
+    getDramaMovies:()=>{dispatch(getDramaMovies())},
     getActionMovies:()=>{dispatch(getActionMovies())},
     showLoadingSpinner:()=>{ dispatch(showLoadingSpinner())},
     searchMovies:(searchTerm)=>{ dispatch(searchMovies(searchTerm))},

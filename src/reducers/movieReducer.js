@@ -8,6 +8,7 @@ import {
   ADD_MOVIE,
   REMOVE_MOVIE
 } from "../actions/movieActions";
+import {checkDuplicate} from "../config"
 
 const initialState = {
   movie: null,
@@ -17,7 +18,8 @@ const initialState = {
   similarMovies:[],
   trailers:null,
   review:{},
-  watchlist:[]
+  watchlist:[],
+
 };
 
 const movieReducer = (state = initialState, action) => {
@@ -64,7 +66,7 @@ const movieReducer = (state = initialState, action) => {
     case ADD_MOVIE:
       return{
         ...state,
-        watchlist:[...state.watchlist, action.payload]
+        watchlist:checkDuplicate(state.watchlist,action.payload),
       }
 
     case REMOVE_MOVIE:

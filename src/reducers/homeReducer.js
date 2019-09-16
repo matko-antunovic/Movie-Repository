@@ -7,18 +7,18 @@ import {
   LOAD_MORE_MOVIES,
   GET_ACTION_MOVIES,
   GET_COMEDY_MOVIES,
+  GET_HIGHETST_RATED,
+  GET_DRAMA_MOVIES,
 } from "../actions/homeActions";
 
 const initialState = {
   movies: [],
-  upcomingMovies: [],
-  actionMovies: [],
-  comedyMovies:[],
   heroImage: null,
   loading: false,
   currentPage: 0,
   totalPages: 0,
-  searchTerm: ""
+  searchTerm: "",
+  
 };
 
 const homeReducer = (state = initialState, action) => {
@@ -36,7 +36,7 @@ const homeReducer = (state = initialState, action) => {
     case GET_UPCOMING_MOVIES:
       return {
         ...state,
-        upcomingMovies: action.payload.results,
+        movies: action.payload.results,
         heroImage: state.heroImage || action.payload.results[0],
         loading: false,
         currentPage: action.payload.page,
@@ -44,10 +44,32 @@ const homeReducer = (state = initialState, action) => {
         searchTerm: ""
       };
 
+      case GET_HIGHETST_RATED:
+        return {
+          ...state,
+          movies: action.payload.results,
+          heroImage: state.heroImage || action.payload.results[0],
+          loading: false,
+          currentPage: action.payload.page,
+          totalPages: action.payload.total_pages,
+          searchTerm: ""
+        };
+
     case GET_COMEDY_MOVIES:
       return{
         ...state,
-        comedyMovies: action.payload.results,
+        movies: action.payload.results,
+        heroImage: state.heroImage || action.payload.results[0],
+        loading: false,
+        currentPage: action.payload.page,
+        totalPages: action.payload.total_pages,
+        searchTerm: ""
+      };
+
+    case GET_DRAMA_MOVIES:
+      return{
+        ...state,
+        movies: action.payload.results,
         heroImage: state.heroImage || action.payload.results[0],
         loading: false,
         currentPage: action.payload.page,
@@ -58,7 +80,7 @@ const homeReducer = (state = initialState, action) => {
     case GET_ACTION_MOVIES:
       return {
         ...state,
-        actionMovies: action.payload.results,
+        movies: action.payload.results,
         heroImage: state.heroImage || action.payload.results[0],
         loading: false,
         currentPage: action.payload.page,
@@ -85,7 +107,8 @@ const homeReducer = (state = initialState, action) => {
     case CLEAR_MOVIES:
       return {
         ...state,
-        movies: []
+        movies: [],
+        moviesToShow:[]
       };
     case SHOW_LOADING_SPINNER:
       return {

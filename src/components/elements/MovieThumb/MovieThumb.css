@@ -7,9 +7,17 @@
   box-sizing: border-box;
 }
 
-.rmdb-moviethumb:hover{
+.rmdb-moviethumb img:hover{
   filter: brightness(.4);
 
+}
+
+.thumb-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1c1c1c;
 }
 
 .clickable {
@@ -18,4 +26,15 @@
 
 .clickable:hover {
   opacity: 0.8;
+}
+
+.movie-name{
+  text-decoration: none;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 500;
+  font-family:  'Abel', sans-serif;
+  width: 100%;
+  text-align: center;
+  margin-top: .5rem;
 }

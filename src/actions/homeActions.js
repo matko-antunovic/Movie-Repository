@@ -9,6 +9,8 @@ export const GET_UPCOMING_MOVIES="GET_UPCOMING_MOVIES";
 export const SHOW_LOADING_SPINNER = "SHOW_LOADING_SPINNER";
 export const GET_ACTION_MOVIES = "GET_ACTION_MOVIES";
 export const GET_COMEDY_MOVIES="GET_COMEDY_MOVIES";
+export const GET_HIGHETST_RATED="GET_HIGHETST_RATED"
+export const GET_DRAMA_MOVIES="GET_DRAMA_MOVIES"
 
 export const getPopularMovies = () => async (dispatch, getState) => {
   const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
@@ -40,6 +42,16 @@ export const getActionMovies = () => async (dispatch, getState) => {
   });
 };
 
+export const getDramaMovies = () => async (dispatch, getState) => {
+  const endpoint =`${API_URL}discover/movie?api_key=${API_KEY}&language=en-US&page=1&with_genres=18`;
+  const response = await axios(endpoint);
+
+  dispatch({
+    type: GET_DRAMA_MOVIES,
+    payload: response.data
+  });
+};
+
 export const getComedyMovies = () => async (dispatch, getState) => {
   const endpoint =`${API_URL}discover/movie?api_key=${API_KEY}&language=en-US&page=1&with_genres=35`;
   const response = await axios(endpoint);
@@ -49,6 +61,17 @@ export const getComedyMovies = () => async (dispatch, getState) => {
     payload: response.data
   });
 };
+
+export const getHighestRated = () => async (dispatch, getState) => {
+  const endpoint = `${API_URL}movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`;
+  const response = await axios(endpoint);
+
+  dispatch({
+    type: GET_HIGHETST_RATED,
+    payload: response.data
+  });
+};
+
 
 export const searchMovies = searchTerm => async dispatch => {
   let endpoint;

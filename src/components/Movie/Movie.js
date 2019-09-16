@@ -7,6 +7,7 @@ import Spinner from "../elements/Spinner/Spinner";
 import Review from "../reusables/Review";
 import MovieSimilar from "../elements/MovieSimilar/MovieSimilar";
 import SmallInfo from "../elements/SmallInfo/SmallInfo";
+import {limitText} from "../../config"
 import "./Movie.css";
 
 class Movie extends React.Component {
@@ -34,21 +35,7 @@ class Movie extends React.Component {
       similar,
       addToWatchlist
     } = this.props;
-    const limitText = (text, limit) => {
-      const newtext = [];
-      if (text.length > limit) {
-        text.split(" ").reduce((acc, cur) => {
-          if (acc + cur.length <= limit) {
-            newtext.push(cur);
-          }
-          return acc + cur.length;
-        }, 0);
-      } else {
-        newtext.push(text);
-      }
 
-      return ` "${newtext.join(" ")} ..." Read More`;
-    };
 
     return (
 

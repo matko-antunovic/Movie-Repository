@@ -35,6 +35,7 @@
 
 .watchlist-close{
     margin:0 .65rem;
+    color:white
 }
 
-.watchlist-close:hover{ cursor: pointer;}
+.watchlist-close:hover{ cursor: pointer; color:black}

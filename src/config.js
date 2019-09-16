@@ -15,6 +15,34 @@ const POSTER_SIZE = "w500";
 
 const SMALL_SIZE="w200"
 
+export const checkDuplicate=(state,movie)=>{
+  
+  let existing=state.filter(w=>w.id===movie.id);
+  
+
+  if(!existing.length>0){
+    return  [...state,movie]
+  }
+  return [...state];
+  
+}
+
+
+export const limitText = (text, limit) => {
+  const newtext = [];
+  if (text.length > limit) {
+    text.split(" ").reduce((acc, cur) => {
+      if (acc + cur.length <= limit) {
+        newtext.push(cur);
+      }
+      return acc + cur.length;
+    }, 0);
+  } else {
+    newtext.push(text);
+  }
+
+  return ` "${newtext.join(" ")} ..." Read More`;
+};
 
 
 export {
@@ -25,4 +53,6 @@ export {
   POSTER_SIZE,
   SMALL_SIZE
 }
+
+
 
