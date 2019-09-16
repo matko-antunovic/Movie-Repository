@@ -1,31 +1,31 @@
 import React from 'react'
-import "./Footer.css"
+import {FooterContainer,Divs} from "./FooterStyles"
 
 const Footer = () => {
     return (
-        <div className="footer">
-            <div>
+        <FooterContainer>
+            <Divs>
             <span>Contact</span>
             <span>About Us</span>
             <span>Terms and Services</span>
             <span>Media Center</span>
             <span>Corporate Information</span>
-            </div>
-            <div>
+            </Divs>
+            <Divs>
             <span>Account</span>
             <span>Location</span>
             <span>Investor Relations</span>
             <span>Privacy</span>
             <span>Speed Test</span>
-            </div>
-            <div>
+            </Divs>
+            <Divs>
             <span>Ways to Watch</span>
             <span>Legal Notices</span>
             <span>FAQ</span>
             <span>Help Center</span>
             <span>Built by :<a target="_blank" className="a" href="https://github.com/matko-antunovic/Movie-Repository" rel="noopener noreferrer"> Matko Antunovic</a></span>
-            </div>
-        </div>
+            </Divs>
+        </FooterContainer>
     )
 }
 

@@ -1,7 +1,7 @@
 import React from 'react';
-import "./Header.css";
 import {Link} from "react-router-dom";
 import SideCart from "../SideCart/SideCart.js"
+import {HeaderStyles,HeaderContent,Watchlist,Logo} from "./HeaderStyles"
 class Header extends React.Component {
 
     state={
@@ -17,14 +17,14 @@ class Header extends React.Component {
     render(){
         return (
             <React.Fragment>
-            <div className="rmdb-header">
-             <div className="rmdb-header-content">
+            <HeaderStyles>
+             <HeaderContent>
                  <Link to="/">
-                 <img className="rmdb-logo" src="../images/reactMovie_logo.png" alt="rmdb-logo"/>
+                 <Logo src="../images/reactMovie_logo.png" alt="rmdb-logo"/>
                  </Link>
-                <span onClick={()=>{this.setState({show:!this.state.show})}}  className="watchlist">My Watchlist</span>  
-             </div>
-            </div>
+                <Watchlist onClick={()=>{this.setState({show:!this.state.show})}}>My Watchlist</Watchlist>  
+             </HeaderContent>
+            </HeaderStyles>
              <SideCart show={this.state.show} onClose={this.onClose}/>
              </React.Fragment>
         )

@@ -7,21 +7,21 @@ import Spinner from "../elements/Spinner/Spinner";
 import Review from "../reusables/Review";
 import MovieSimilar from "../elements/MovieSimilar/MovieSimilar";
 import SmallInfo from "../elements/SmallInfo/SmallInfo";
-import {limitText} from "../../config"
-import "./Movie.css";
+import { limitText } from "../../config";
+import {MovieContainer,MovieGrid,MovieDetails,MovieTrailer,MovieReview,MovieReviewText,MovieSimilar2,MovieSimiliarLeftSide} from "./MovieStyles"
+
 
 class Movie extends React.Component {
   state = {
     isHovering: false,
-    movieSimilar:null
+    movieSimilar: null
   };
 
-  handleMouseHover = (movie) => {
+  handleMouseHover = movie => {
     this.setState({
       isHovering: !this.state.isHovering,
-      movieSimilar:movie
+      movieSimilar: movie
     });
-    
   };
 
   render() {
@@ -36,14 +36,16 @@ class Movie extends React.Component {
       addToWatchlist
     } = this.props;
 
-
     return (
-
-      <div className="rmdb-movie">
+      <MovieContainer>
         {movie ? (
           <div>
             <Navigation movie={movie.original_title} />
-            <MovieInfo movie={movie} directors={directors} addToWatchlist={addToWatchlist} />
+            <MovieInfo
+              movie={movie}
+              directors={directors}
+              addToWatchlist={addToWatchlist}
+            />
             <MovieInfoBar
               time={movie.runtime}
               budget={movie.budget}
@@ -52,19 +54,19 @@ class Movie extends React.Component {
           </div>
         ) : null}
         {actors ? (
-          <div className="rmdb-movie-grid">
+          <MovieGrid>
             {movieId.length > 0 ? (
-              <div className="rmdb-movie-details">
-                <div className="rmdb-movie-details__review">
-                  <div className="rmdb-movie-details__review--text">
+              <MovieDetails>
+                <MovieReview>
+                  <MovieReviewText>
                     {review ? (
                       limitText(review.content, 600)
                     ) : (
                       <Review name={movie.original_title} />
                     )}
-                  </div>
-                </div>
-                <div className="trailer-holder">
+                  </MovieReviewText>
+                </MovieReview>
+                <MovieTrailer>
                   <iframe
                     src={`https://www.youtube.com/embed/${movieId[0].key}`}
                     frameBorder="0"
@@ -74,34 +76,45 @@ class Movie extends React.Component {
                     width="100%"
                     height="450px"
                   />
-                </div>
-              </div>
+                </MovieTrailer>
+              </MovieDetails>
             ) : null}
-            <h2>Similar movies</h2>
+
             {similar.length > 0 ? (
-              <div className="rmdb-movie-similar" >
-                <div className="rmdb-movie-similar__left-side">
-                  {similar.map((s, i) => {
-                    if (i < 6) {
-                      return <MovieSimilar onMouseEnter={this.handleMouseHover}  key={i} movie={s} />;
-                    }
-                    return null;
-                  })}
-                </div>
-                <div className="rmdb-movie-similar__right-side">
-                  <SmallInfo  movieSimilar0={similar[0]} hovered={this.state.movieSimilar} />
-                </div>
-              </div>
+              <React.Fragment>
+                <h2>Similar movies</h2>
+                <MovieSimilar2>
+                  <MovieSimiliarLeftSide>
+                    {similar.map((s, i) => {
+                      if (i < 6) {
+                        return (
+                          <MovieSimilar
+                            onMouseEnter={this.handleMouseHover}
+                            key={i}
+                            movie={s}
+                          />
+                        );
+                      }
+                      return null;
+                    })}
+                  </MovieSimiliarLeftSide>
+                  <div>
+                    <SmallInfo
+                      movieSimilar0={similar[0]}
+                      hovered={this.state.movieSimilar}
+                    />
+                  </div>
+                </MovieSimilar2>
+              </React.Fragment>
             ) : null}
             <FourColGrid header={"Actors"} actors={actors} />
-          </div>
+          </MovieGrid>
         ) : null}
         {!actors && !loading ? <h1> No movie found! </h1> : null}
         {loading ? <Spinner /> : null}
-      </div>
+      </MovieContainer>
     );
   }
 }
 
-
-export default (Movie);
+export default Movie;

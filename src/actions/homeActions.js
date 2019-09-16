@@ -11,6 +11,7 @@ export const GET_ACTION_MOVIES = "GET_ACTION_MOVIES";
 export const GET_COMEDY_MOVIES="GET_COMEDY_MOVIES";
 export const GET_HIGHETST_RATED="GET_HIGHETST_RATED"
 export const GET_DRAMA_MOVIES="GET_DRAMA_MOVIES"
+export const GET_GENRE="GET_GENRE"
 
 export const getPopularMovies = () => async (dispatch, getState) => {
   const endpoint = `${API_URL}movie/popular?api_key=${API_KEY}&language=en-US&page=1`;
@@ -32,35 +33,26 @@ export const getUpcomingMovies = () => async (dispatch, getState) => {
   });
 };
 
-export const getActionMovies = () => async (dispatch, getState) => {
-  const endpoint =`${API_URL}discover/movie?api_key=${API_KEY}&language=en-US&page=1&with_genres=28`;
+
+export const getGenre = (genre) => async (dispatch, getState) => {
+  const genres={
+    comedy:35,
+    drama:18,
+    action:28,
+    documentary:99,
+    crime:80,
+    romance:10749
+  }
+  const endpoint =`${API_URL}discover/movie?api_key=${API_KEY}&language=en-US&page=1&with_genres=${genres[genre]}`;
   const response = await axios(endpoint);
 
   dispatch({
-    type: GET_ACTION_MOVIES,
+    type: GET_GENRE,
     payload: response.data
   });
 };
 
-export const getDramaMovies = () => async (dispatch, getState) => {
-  const endpoint =`${API_URL}discover/movie?api_key=${API_KEY}&language=en-US&page=1&with_genres=18`;
-  const response = await axios(endpoint);
 
-  dispatch({
-    type: GET_DRAMA_MOVIES,
-    payload: response.data
-  });
-};
-
-export const getComedyMovies = () => async (dispatch, getState) => {
-  const endpoint =`${API_URL}discover/movie?api_key=${API_KEY}&language=en-US&page=1&with_genres=35`;
-  const response = await axios(endpoint);
-
-  dispatch({
-    type: GET_COMEDY_MOVIES,
-    payload: response.data
-  });
-};
 
 export const getHighestRated = () => async (dispatch, getState) => {
   const endpoint = `${API_URL}movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`;

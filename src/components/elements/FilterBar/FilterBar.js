@@ -3,7 +3,7 @@ import "./FilterBar.css"
 
 const FilterBar=({handleClick})=> {
 
-     const categories=["popular","upcoming","top rated","action","comedy","drama"];
+     const categories=["popular","upcoming","top rated","action","comedy","drama","documentary","crime", "romance"];
 
      const click=(e)=>{
 

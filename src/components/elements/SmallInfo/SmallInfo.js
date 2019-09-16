@@ -1,5 +1,4 @@
 import React from "react";
-import "./SmallInfo.css";
 import { withRouter } from "react-router-dom";
 import HoveredMovie from "../HoveredMovie/HoveredMovie";
 

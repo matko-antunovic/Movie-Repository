@@ -1,23 +1,21 @@
 import React from 'react'
-import "./HoveredMovie.css"
 import {IMAGE_BASE_URL,POSTER_SIZE} from "../../../config"
-
+import {SmallInfo,SmallInfoDetails,SmallInfoImage,SmallInfoDetailsText} from "./SmallInfoStyles"
 
 const HoveredMovie = ({movie,history}) => {
     return (
-        <div className="small-info">
-        <div onClick={()=>history.push(`/${movie.id}`)} className="small-info__image">
+        <SmallInfo>
+        <SmallInfoImage onClick={()=>history.push(`/${movie.id}`)}>
           <img
-           className="imgsmall"
            src={`${IMAGE_BASE_URL}${POSTER_SIZE}${movie.poster_path}`}
            alt="noIMG"
          />
 
-       </div>
+       </SmallInfoImage>
  
-       <div className="small-info__details">
+       <SmallInfoDetails>
          <h2 onClick={()=>history.push(`/${movie.id}`)}>{movie.original_title}</h2>
-         <p className="small-info__details--text">{movie.overview}</p>
+         <SmallInfoDetailsText>{movie.overview}</SmallInfoDetailsText>
          <p>IMDB RATING</p>
          <div className="rmdb-rating">
            <meter
@@ -30,8 +28,8 @@ const HoveredMovie = ({movie,history}) => {
            />
            <p className="rmdb-score">{movie.vote_average}</p>
          </div>
-       </div>
-     </div>
+       </SmallInfoDetails>
+     </SmallInfo>
     )
 }
 

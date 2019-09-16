@@ -1,11 +1,12 @@
 import React from "react";
-import "./Home.css";
+
 import { IMAGE_BASE_URL, BACKDROP_SIZE } from "../../config";
 import HeroImage from "../elements/HeroImage/HeroImage";
 import SearchBar from "../elements/SearchBar/SearchBar";
 import FourColGrid from "../elements/FourColGrid/FourColGrid";
 import Spinner from "../elements/Spinner/Spinner";
 import FilterBar from "../elements/FilterBar/FilterBar"
+import {HomeCategorySelect,HomeStyles,HomeGrid,HomeComponent,HomeContainer,HomeFilter} from "./HomeStyles"
 
 const Home = ({
   movies,
@@ -19,10 +20,10 @@ const Home = ({
 
   return (
 
-    <div className="rmdb-home">
+    <HomeStyles>
       {loading ? <Spinner /> : null}
       {heroImage ? (
-        <div className="rmdb-home-component">
+        <HomeComponent>
           <HeroImage
             image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${
               heroImage.backdrop_path
@@ -31,12 +32,13 @@ const Home = ({
             text={heroImage.overview}
           />
           <SearchBar search={searchMovies} />
-          <FilterBar handleClick={handleClick}/>
-        </div>
+         <HomeFilter> <HomeCategorySelect>Select movies category:</HomeCategorySelect> <FilterBar handleClick={handleClick}/></HomeFilter>
+         
+        </HomeComponent>
       ) : null}
   
       { searchTerm ? 
-      <div className="rmdb-home-grid">
+      <HomeGrid>
         
       <FourColGrid
         header={searchTerm ? `Search Result: ${searchTerm}` : title ? title.toUpperCase() : "Popular Movies"}
@@ -44,7 +46,7 @@ const Home = ({
         movies={movies}
       />
 
-    </div> 
+    </HomeGrid> 
     :  <FourColGrid
     header={searchTerm ? `Search Result: ${searchTerm}` : title ? `${title.charAt(0).toUpperCase() + title.slice(1)} Movies` : "Popular Movies"}
     loading={loading}
@@ -52,7 +54,7 @@ const Home = ({
   />
       }
 
-    </div>
+    </HomeStyles>
   );
 };
 

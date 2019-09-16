@@ -9,6 +9,7 @@ import {
   GET_COMEDY_MOVIES,
   GET_HIGHETST_RATED,
   GET_DRAMA_MOVIES,
+  GET_GENRE,
 } from "../actions/homeActions";
 
 const initialState = {
@@ -65,6 +66,18 @@ const homeReducer = (state = initialState, action) => {
         totalPages: action.payload.total_pages,
         searchTerm: ""
       };
+
+      case GET_GENRE:
+        return{
+          ...state,
+          movies: action.payload.results,
+          heroImage: state.heroImage || action.payload.results[0],
+          loading: false,
+          currentPage: action.payload.page,
+          totalPages: action.payload.total_pages,
+          searchTerm: ""
+        };
+  
 
     case GET_DRAMA_MOVIES:
       return{
