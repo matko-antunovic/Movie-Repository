@@ -15,4 +15,9 @@ img{
     height: 100%;
 
 }
+@media(max-width:1250px){
+    margin:0 .2rem;
+
+  }
+ 
 `

@@ -10,6 +10,11 @@ export const NavigationContainer=styled.div`
   box-sizing: border-box;
   margin: 0;
   padding-top: 10px;
+
+  
+  @media (max-width: 500px) {
+  display:none;
+  }
 `
 
 
@@ -26,4 +31,14 @@ export const NavigationContent=styled.div`
   text-decoration: none;
   margin: 0;
 }
+
+@media (max-width: 600px) {
+  padding:0;
+  p {
+  font-size:1.1rem;
+  padding-right: 10px;
+  padding-top:3px;
+}
+  }
+
 `

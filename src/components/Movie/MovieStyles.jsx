@@ -13,17 +13,27 @@ export const MovieGrid=styled.div`
   font-family: 'Abel', sans-serif;
   font-size:1.3rem;
   color:#fff;
+
+  @media(max-width:1250px){
+    margin:0 auto;
+  }
 `
 
 export const MovieDetails=styled.div`
   display: flex;
   padding:3rem 0;
+  height:auto;
+
+  @media(max-width:1250px){
+    flex-direction:column;
+  }
 `
 
 export const MovieTrailer=styled.div`
   display: flex;
   flex-grow: 1;
   min-width: 60%;
+  order:-1;
 `
 
 export const MovieReview=styled.div`
@@ -51,6 +61,13 @@ export const MovieSimilar2=styled.div`
   overflow: hidden;
   margin-top: 2rem;
   display: flex;
+
+  @media(max-width:1250px){
+    height:auto;
+    flex-direction:column;
+   align-items:center;
+   margin-bottom:3rem;
+  }
 `
 
 export const MovieSimiliarLeftSide=styled.div`
@@ -64,5 +81,19 @@ export const MovieSimiliarLeftSide=styled.div`
   grid-row-gap:.8rem;
   grid-column-gap: .5rem;
   justify-items: center;
+
+  @media(max-width:1250px){
+    display:flex;
+    margin-right: 0;
+    min-width:100%;
+  }
+  @media(max-width:800px){
+    width:100%;
+    display: grid;
+    grid-template-columns: repeat(3,minmax(80px, 200px));
+    grid-row-gap:1rem;
+  grid-column-gap: 1rem;
+  justify-content:center;
+  }
 `
 

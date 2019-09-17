@@ -34,12 +34,21 @@ export const SmallInfoImage=styled.div`
     width: 200px;
     cursor: pointer;
  }
+
+ @media(max-width:650px){
+   display:none;
+  }
 `
 
 export const SmallInfoRating=styled.div`
   display:flex;
   font-size:1.5rem;
   align-items:center;
+  @media(max-width:650px){
+   p{
+     font-size:1rem;
+   }
+  }
  meter{
   width:200px;
 
