@@ -1,5 +1,4 @@
 .loader {
-
   border: 5px solid #f3f3f3; 
   border-top: 5px solid red; 
   border-radius: 50%;
@@ -7,6 +6,7 @@
   height: 120px;
   animation: spin 0.8s linear infinite;
   margin: 20px auto;
+  z-index: 1111;
 }
 
 @keyframes spin {

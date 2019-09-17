@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 export const HomeStyles=styled.div`
   width: 100%;
@@ -14,7 +14,7 @@ export const HomeComponent=styled.div`
   align-items: center;
 `
 export const HomeContainerStyles=styled.div`
-display: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
 `
@@ -30,6 +30,10 @@ export const HomeFilter=styled.div`
   display: flex;
   align-items:center;
   justify-content: space-between;
+
+  @media (max-width: 1250px) {
+   flex-direction:column;
+  }
 `
 
 export const LoadMore=styled.button`

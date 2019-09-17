@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components/macro"
 
 export const FourColGridStyles=styled.div`
   max-width: 1280px;
@@ -11,6 +11,9 @@ export const FourColGridStyles=styled.div`
   color:#fff;
   margin: 1rem 0 4rem 0;
 }
+@media (max-width: 850px) {
+  h1{ margin:.5rem 0 2rem 0;}
+  }
 `
 
 
@@ -19,6 +22,13 @@ export const FourColGridContent=styled.div`
   grid-template-columns: repeat(5, 1fr);
   grid-column-gap: 40px;
   grid-row-gap: 40px;
+
+  @media (max-width: 850px) {
+    grid-template-columns: repeat(auto-fit, minmax(150px,1fr));
+    grid-column-gap: 0px;
+  grid-row-gap: 1rem;
+
+  }
 `
 
 export const FourColGridElement=styled.div`
@@ -27,5 +37,6 @@ export const FourColGridElement=styled.div`
   width: 100%;
   object-fit: cover;
   overflow: hidden;
+
   `
 

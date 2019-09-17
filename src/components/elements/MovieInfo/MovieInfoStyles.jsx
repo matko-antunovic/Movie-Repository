@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import {IMAGE_BASE_URL, BACKDROP_SIZE} from "../../../config"
 
 export const MovieInfoStyles=styled.div`
@@ -9,6 +9,8 @@ export const MovieInfoStyles=styled.div`
   padding: 40px 20px;
   box-sizing: border-box;
   background: ${props=> props.bck ? `url(${IMAGE_BASE_URL}${BACKDROP_SIZE}${props.bck})` : "#000" }
+
+ 
 `
 
 export const MovieAlert=styled.div`
@@ -24,6 +26,16 @@ export const MovieInfoTitle=styled.div`
  display: flex;
   align-items: center;
   justify-content: space-between;
+
+  h1{
+     font-size:1rem;
+   }
+
+  @media (max-width: 1250px) {
+   h1{
+     font-size:1rem;
+   }
+  }
 `
 export const MovieInfoContent=styled.div`
   max-width: 1280px;
@@ -32,6 +44,11 @@ export const MovieInfoContent=styled.div`
   margin: 0 auto;
   background-color: rgb(0, 0, 0, 0.7);
   position: relative;
+
+  @media (max-width: 850px) {
+    display:flex;
+  }
+
 `
 
 export const MovieInfoThumb=styled.div`
@@ -41,6 +58,11 @@ export const MovieInfoThumb=styled.div`
   position: absolute;
   left: 0px;
   cursor: none;
+  background-color:red;
+
+  @media (max-width: 850px) {
+    width:auto;
+  }
 `
 
 export const MovieInfoText=styled.div`
@@ -72,6 +94,12 @@ p {
   font-size: 18px;
   line-height: 26px;
 }
+
+  
+@media (max-width: 1250px) {
+
+  }
+
 `
 
 export const MovieInfoRating=styled.div`

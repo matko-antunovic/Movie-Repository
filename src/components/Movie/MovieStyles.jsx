@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 export const MovieContainer=styled.div`
   padding-bottom: 100px;

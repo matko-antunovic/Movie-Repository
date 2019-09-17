@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components/macro"
 
 export const ActorStyles=styled.div`
  box-sizing: border-box;
@@ -9,6 +9,13 @@ export const ActorStyles=styled.div`
   float: left;
   box-sizing: border-box;
 }
+
+@media (max-width: 1250px) {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
+  }
 `
 export const ActorName=styled.div`
   font-family: 'Abel', sans-serif;

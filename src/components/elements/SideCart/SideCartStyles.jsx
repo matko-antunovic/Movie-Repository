@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from "styled-components/macro";
 
 const showStyle = css`
   position: fixed;
@@ -18,6 +18,10 @@ export const SideCartContainer = styled.div`
   transition: all 1s cubic-bezier(0.35, 0.82, 0.35, 1);
   overflow-y: scroll;
   ${props => (props.show ? showStyle : null)}
+
+  @media (max-width: 500px) {
+   width:225px;
+  }
 
   ::-webkit-scrollbar-track {
     border: 3px solid #000;

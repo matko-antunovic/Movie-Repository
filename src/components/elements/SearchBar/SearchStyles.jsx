@@ -8,6 +8,10 @@ export const SearchBarContainer=styled.div`
   padding: 35px 20px 0px 30px;
   box-sizing: border-box;
   color: #fff;
+
+  @media (max-width: 1250px) {
+    margin-bottom:1.5rem;
+  }
 `
 
 export const SearchBarContent=styled.div`

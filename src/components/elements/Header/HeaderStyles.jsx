@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 export const HeaderStyles=styled.div`
   width: 100%;
@@ -31,30 +31,21 @@ export const Watchlist=styled.div`
   :hover{
   color: red;
 }
+
+@media (max-width: 400px) {
+   font-size:1rem;
+  }
 `
 
 export const Logo=styled.img`
   width: 200px;
   height: 25px;
   object-fit: contain;
+
+  
+@media (max-width: 400px) {
+  width: 150px;
+  }
 `
 
-
-// @media screen and (max-width: 500px) {
-//     .rmdb-header-content {
-//       max-width: 1280px;
-//       min-height: 0px;
-//     }
-  
-//     .rmdb-tmdb-logo {
-//       display: inline-block;
-//       width:80px;
-//       margin-top: 0px;
-//     }
-  
-//     .rmdb-logo {
-//       width: 150px;
-//       margin-top: 5px;
-//     }
-//   }
   

@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components/macro"
 
 export const MovieThumbStyles=styled.div`
 img {
@@ -12,6 +12,12 @@ img {
   filter: brightness(.4);
   cursor: pointer;
 }
+
+@media (max-width: 850px) {
+    height: 100%;
+     width: 15rem;
+     padding:1rem;
+  }
 }
 
 `

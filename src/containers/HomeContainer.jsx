@@ -27,29 +27,17 @@ class HomeContainer extends Component {
     getMovies=(state)=>{
        
         this.props.clearMovies();
-       if(state==="action"){
+       if(state==="action" || state==="comedy" || state==="crime" || state==="drama" || state==="romance" || state==="documentary"){
         this.props.getGenre(state);
-       } else if(state==="comedy"){
-        this.props.getGenre(state);
-       } else if(state==="upcoming"){
+       }else if(state==="upcoming"){
         this.props.getUpcomingMovies();
        }else if(state==="top rated"){
         this.props.getHighestRated();
-       }
-       else if(state==="drama"){
-        this.props.getGenre(state);
-       }
-       else if(state==="romance"){
-        this.props.getGenre(state);
-       }
-       else if(state==="crime"){
-        this.props.getGenre(state);
-       }
-       else if(state==="documentary"){
-        this.props.getGenre(state);
        }else{
-           return this.props.getPopularMovies()
+         this.props.getPopularMovies()
        }
+
+
     }
 
     searchMovies=(searchTerm)=>{
