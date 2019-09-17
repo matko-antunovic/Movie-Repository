@@ -1,23 +1,23 @@
 import React from 'react';
-import "./MovieThumb.css";
+import {MovieThumbStyles,MovieThumbContainer,MovieThumbName} from "./MovieThumbStyles"
 import {Link} from "react-router-dom";
 
 const MovieThumb = ({image,movieId, movieName, clickable,width}) => {
     return (
-        <div className="rmdb-moviethumb" style={{width:`${width}`}}>
+        <MovieThumbStyles style={{width:`${width}`}}>
             {clickable ? 
-            <div className="thumb-container">
+            <MovieThumbContainer>
             <Link to={{pathname:`/${movieId}`, movieName:`${movieName}`}}>
             <img src={image} alt="moviethumb" />
             </Link>
-            <span className="movie-name">{movieName}</span>
-            </div>
+            <MovieThumbName>{movieName}</MovieThumbName>
+            </MovieThumbContainer>
             :(
-            <Link to={{pathname:`/${movieId}`, movieName:`${movieName}`}}>
+
             <img src={image} alt="moviethumb" />
-            </Link>)}
+        )}
             
-        </div>
+        </MovieThumbStyles>
     )
 }
 

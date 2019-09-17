@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {connect} from "react-redux";
 import Home from "../components/Home/Home"
-import {HomeContainerStyles} from "../components/Home/HomeStyles"
+import {HomeContainerStyles,LoadMore} from "../components/Home/HomeStyles"
 
 import{getPopularMovies,getUpcomingMovies,
     showLoadingSpinner,searchMovies,clearMovies,loadMoreMovies,getHighestRated,getGenre} from "../actions/homeActions"
@@ -77,7 +77,7 @@ class HomeContainer extends Component {
                  moviesToShow={this.props.home.moviesToShow}
                  title={this.state.choosen}
                  />
-               <button className="load-more" onClick={this.loadMoreMovies}>Load More</button>
+               <LoadMore onClick={this.loadMoreMovies}>Load More</LoadMore>
             </HomeContainerStyles>
         )
     }

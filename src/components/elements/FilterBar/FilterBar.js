@@ -1,5 +1,5 @@
 import React from "react";
-import "./FilterBar.css"
+import {FilterBarButtonStyles,FilterBarStyles} from "./FilterStyles"
 
 const FilterBar=({handleClick})=> {
 
@@ -10,9 +10,9 @@ const FilterBar=({handleClick})=> {
          handleClick(e)
      }
     return (
-      <div className="FilterBar">
-          {categories.map((cat,i)=><button className="FilterBar__categories-button" key={i} name={cat} onClick={click}>{cat}</button>)}
-      </div>
+      <FilterBarStyles>
+          {categories.map((cat,i)=><FilterBarButtonStyles key={i} name={cat} onClick={click}>{cat}</FilterBarButtonStyles>)}
+      </FilterBarStyles>
     );
   }
 

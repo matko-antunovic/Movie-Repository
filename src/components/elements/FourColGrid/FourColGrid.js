@@ -1,5 +1,5 @@
 import React from "react";
-import "./FourColGrid.css";
+import {FourColGridContent,FourColGridElement,FourColGridStyles} from "./FourColGridStyles"
 import {IMAGE_BASE_URL, POSTER_SIZE} from "../../../config";
 import MovieThumb from "../MovieThumb/MovieThumb"
 import Actor from "../Actor/Actor"
@@ -23,7 +23,7 @@ const FourColGrid = (props) => {
 } else{
    movie=props.actors.map((el,i)=>{
        if(i<15){
-        return <div key={i} className="rmdb-grid-element"> <Actor key={i} actor={el}/></div> 
+        return <FourColGridElement key={i}> <Actor key={i} actor={el}/></FourColGridElement> 
        }
         return null
         }) 
@@ -31,12 +31,12 @@ const FourColGrid = (props) => {
         
 
     return (
-        <div className="rmdb-grid">
+        <FourColGridStyles>
             {props.header && !props.loading ? <h1>{props.header}</h1> : null}
-            <div className="rmdb-grid-content">
+            <FourColGridContent>
                 {movie}
-            </div>
-        </div>
+            </FourColGridContent>
+        </FourColGridStyles>
     )
 
 }

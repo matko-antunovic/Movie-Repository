@@ -1,25 +1,17 @@
 import React from 'react';
-import "./HeroImage.css";
-
+import {HeroImageStyles,HeroImageText,HeroImageContent} from "./HeroImageStyles"
 const HeroImage = (props) => {
     return (
-        <div className="rmdb-heroimage"
-        style={{
-            background:
-            `linear-gradient(to bottom, rgba(0,0,0,0)
-            39%,rgba(0,0,0,0)
-            51%,rgba(0,0,0,0.7)
-            100%),
-            url("${props.image}"), #1c1c1c`
-        }}
+        <HeroImageStyles
+        imageUrl={props.image}
         >
-            <div className="rmdb-heroimage-content">
-                <div className="rmdb-heroimage-text">
+            <HeroImageContent>
+                <HeroImageText>
                     <h1>{props.title}</h1>
                     <p>{props.text}</p>
-                </div>
-            </div>
-        </div>
+                </HeroImageText>
+            </HeroImageContent>
+        </HeroImageStyles>
     )
 }
 

@@ -1,27 +1,27 @@
 import React from 'react'
 import FontAwesome from "react-fontawesome"
 import {calcTime, convertMoney} from "../../../helpers"
-import "./MovieInfoBar.css"
+import {MovieInfoBarStyles,MovieInfoBarContent,MovieInfoBarContentColumn,MovieInfoBarInfo} from "./MovieInfoBarStyles"
 
 const MovieInfoBar = ({time,budget,revenue}) => {
 
     return (
-        <div className="rmdb-movieinfobar">
-         <div className="rmdb-movieinfobar-content">
-             <div className="rmdb-movieinfobar-content-col">
-                 <FontAwesome className="fa-time" name="clock-o" size="2x"/>
-                 <span className="rmdb-movieinfobar-info">Running time:{calcTime(time)}</span>
-             </div>
-             <div className="rmdb-movieinfobar-content-col">
-                 <FontAwesome className="fa-budget" name="money" size="2x"/>
-                 <span className="rmdb-movieinfobar-info">Budget: {convertMoney(budget)}</span>
-             </div>
-             <div className="rmdb-movieinfobar-content-col">
-                 <FontAwesome className="fa-revenue" name="ticket" size="2x"/>
-                 <span className="rmdb-movieinfobar-info">Revenue:{convertMoney(revenue)}</span>
-             </div>
-         </div>
-        </div>
+        <MovieInfoBarStyles>
+         <MovieInfoBarContent>
+             <MovieInfoBarContentColumn>
+                 <FontAwesome className="fa-time" name="clock-o" size="2x" style={{marginTop:".3rem"}}/>
+                 <MovieInfoBarInfo>Running time:{calcTime(time)}</MovieInfoBarInfo>
+             </MovieInfoBarContentColumn>
+             <MovieInfoBarContentColumn>
+                 <FontAwesome className="fa-budget" name="money" size="2x" style={{marginTop:".3rem"}}/>
+                 <MovieInfoBarInfo>Budget: {convertMoney(budget)}</MovieInfoBarInfo>
+             </MovieInfoBarContentColumn>
+             <MovieInfoBarContentColumn>
+                 <FontAwesome className="fa-revenue" name="ticket" size="2x" style={{marginTop:".3rem"}}/>
+                 <MovieInfoBarInfo>Revenue:{convertMoney(revenue)}</MovieInfoBarInfo>
+             </MovieInfoBarContentColumn>
+         </MovieInfoBarContent>
+        </MovieInfoBarStyles>
     )
 }
 

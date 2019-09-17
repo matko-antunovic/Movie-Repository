@@ -1,12 +1,11 @@
 import React from "react";
-
 import { IMAGE_BASE_URL, BACKDROP_SIZE } from "../../config";
 import HeroImage from "../elements/HeroImage/HeroImage";
 import SearchBar from "../elements/SearchBar/SearchBar";
 import FourColGrid from "../elements/FourColGrid/FourColGrid";
 import Spinner from "../elements/Spinner/Spinner";
 import FilterBar from "../elements/FilterBar/FilterBar"
-import {HomeCategorySelect,HomeStyles,HomeGrid,HomeComponent,HomeContainer,HomeFilter} from "./HomeStyles"
+import {HomeCategorySelect,HomeStyles,HomeGrid,HomeComponent,HomeFilter} from "./HomeStyles"
 
 const Home = ({
   movies,
@@ -17,7 +16,6 @@ const Home = ({
   handleClick,
   title
 }) => {
-
   return (
 
     <HomeStyles>
@@ -25,6 +23,7 @@ const Home = ({
       {heroImage ? (
         <HomeComponent>
           <HeroImage
+          
             image={`${IMAGE_BASE_URL}${BACKDROP_SIZE}${
               heroImage.backdrop_path
             }`}

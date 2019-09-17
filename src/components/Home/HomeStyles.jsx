@@ -31,3 +31,18 @@ export const HomeFilter=styled.div`
   align-items:center;
   justify-content: space-between;
 `
+
+export const LoadMore=styled.button`
+  padding: 1.5rem;
+  margin-top: 3rem;
+  background-color: rgba(243, 46, 46, 0.8);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  outline:none;
+  :hover{
+  opacity: .8;
+}
+
+`

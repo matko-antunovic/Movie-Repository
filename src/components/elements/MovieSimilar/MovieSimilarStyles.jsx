@@ -1,10 +1,11 @@
-.movie-similar{
+import styled from "styled-components"
+
+export const MovieSimilarStyles=styled.div`
     height: 100%;
     width: 100%;
     overflow: hidden;
-}
 
-.movie-similar:hover{
+    :hover{
    cursor: pointer;
    filter: brightness(.6);
 }
@@ -14,3 +15,4 @@ img{
     height: 100%;
 
 }
+`

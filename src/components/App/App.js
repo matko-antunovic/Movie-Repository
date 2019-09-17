@@ -5,7 +5,6 @@ import HomeContainer from "../../containers/HomeContainer";
 import MovieContainer from "../../containers/MovieContainer";
 import NotFound from "../elements/NotFound/NotFound"
 import {Switch,Route} from "react-router-dom";
-import "./App.css"
 
 const App=()=>{
     return(

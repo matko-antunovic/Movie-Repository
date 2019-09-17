@@ -1,3 +1,4 @@
+
 import React from "react";
 import Navigation from "../elements/Navigation/Navigation";
 import MovieInfo from "../elements/MovieInfo/MovieInfo";
@@ -9,6 +10,7 @@ import MovieSimilar from "../elements/MovieSimilar/MovieSimilar";
 import SmallInfo from "../elements/SmallInfo/SmallInfo";
 import { limitText } from "../../config";
 import {MovieContainer,MovieGrid,MovieDetails,MovieTrailer,MovieReview,MovieReviewText,MovieSimilar2,MovieSimiliarLeftSide} from "./MovieStyles"
+
 
 
 class Movie extends React.Component {
@@ -33,11 +35,13 @@ class Movie extends React.Component {
       movieId,
       review,
       similar,
-      addToWatchlist
+      addToWatchlist,
+      watchlist
     } = this.props;
 
     return (
       <MovieContainer>
+    
         {movie ? (
           <div>
             <Navigation movie={movie.original_title} />
@@ -45,6 +49,7 @@ class Movie extends React.Component {
               movie={movie}
               directors={directors}
               addToWatchlist={addToWatchlist}
+              watchlist={watchlist}
             />
             <MovieInfoBar
               time={movie.runtime}

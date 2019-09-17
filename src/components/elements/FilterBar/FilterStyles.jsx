@@ -1,13 +1,15 @@
-.FilterBar{
+import styled from "styled-components"
+
+export const FilterBarStyles=styled.div`
 display: flex;
 justify-content: space-between;
 flex-wrap: wrap;
 max-width: 1280px;
 width: 100%;
 margin: 3rem 0;
-}
+`
 
-.FilterBar__categories-button{
+export const FilterBarButtonStyles=styled.button`
     padding: 1rem;
     color: #fff;
     font-weight: 700;
@@ -18,8 +20,8 @@ margin: 3rem 0;
     cursor: pointer;
     border-radius: .5rem;
     outline: none;
-}
 
-.FilterBar__categories-button:hover{
+    :hover{
     filter: brightness(.8);
 }
+`

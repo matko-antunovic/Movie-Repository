@@ -3,6 +3,7 @@ import {connect} from "react-redux"
 import { getMovie,showLoadingSpinner,clearMovie,getSimilarMovies,getMovieVideo,getMovieReview,addToWatchlist} from "../actions/movieActions"
 import Movie from "../components/Movie/Movie"
 
+
 class MovieContainer extends Component {
 
     componentDidMount(){
@@ -38,6 +39,7 @@ class MovieContainer extends Component {
                 review={this.props.review}
                 similar={this.props.movie.similarMovies}
                 addToWatchlist={this.props.addToWatchlist}
+                watchlist={this.props.watchlist}
                 />
             </div>
         )

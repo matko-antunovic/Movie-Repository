@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FontAwesome from "react-fontawesome";
-import "./SearchBar.css";
+import{SearchBarContainer,SearchBarContent,SearchBarInput,FaSearch} from "./SearchStyles"
 
 class SearchBar extends Component {
     state={
@@ -24,18 +24,18 @@ class SearchBar extends Component {
 
     render() {
         return (
-            <div className="rmdb-searchbar">
-                <div className="rmdb-searchbar-content">
-                <FontAwesome className="rmdb-fa-search" name="search" size="2x" />
-                <input
+            <SearchBarContainer>
+                <SearchBarContent>
+                <FaSearch> <FontAwesome  name="search" size="2x" /></FaSearch>
+               
+                <SearchBarInput
                  type="text"
-                className="rmdb-searchbar-input"
                 onChange={this.handleInput}
                 value={this.state.search}
                 placeholder="Search Movies"
                 />
-                </div>
-            </div>
+                </SearchBarContent>
+            </SearchBarContainer>
         )
     }
 }
