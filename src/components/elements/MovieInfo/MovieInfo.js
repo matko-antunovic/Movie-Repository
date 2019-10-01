@@ -19,7 +19,7 @@ const MovieInfo = ({movie,directors,addToWatchlist,watchlist}) => {
                <MovieInfoText>
                    <MovieInfoTitle>
                         <h1>{movie.title}</h1> 
-                        <Add onClick={<MovieAlert>ALOO</MovieAlert>} addToWatchlist={()=>addToWatchlist(movie)}/>
+                        <Add addToWatchlist={()=>addToWatchlist(movie)}/>
                         </MovieInfoTitle>
                   
                    <h3>PLOT</h3>

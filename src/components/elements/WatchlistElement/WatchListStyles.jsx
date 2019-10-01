@@ -41,6 +41,6 @@ font-family: 'Abel', sans-serif;
 
 export const WatchListClose=styled.span`
 margin:0 .65rem;
-    color:white
+    color:white;
     :hover{ cursor: pointer; color:black}
 `

@@ -2,10 +2,8 @@ import React, { Component } from 'react'
 import {connect} from "react-redux";
 import Home from "../components/Home/Home"
 import {HomeContainerStyles,LoadMore} from "../components/Home/HomeStyles"
-
-import{getPopularMovies,getUpcomingMovies,
-    showLoadingSpinner,searchMovies,clearMovies,loadMoreMovies,getHighestRated,getGenre} from "../actions/homeActions"
-
+import {withRouter,Link} from "react-router-dom"
+import {getPopularMovies,getUpcomingMovies,getHighestRated,showLoadingSpinner,searchMovies,clearMovies,loadMoreMovies,getGenre,getMovies,guestSession} from "../actions/homeActions"
 
 class HomeContainer extends Component {
 
@@ -24,8 +22,10 @@ class HomeContainer extends Component {
        this.getMovies();
     }
 
+
+
     getMovies=(state)=>{
-       
+       {!this.props.home.authToken && this.props.guestSession()}
         this.props.clearMovies();
        if(state==="action" || state==="comedy" || state==="crime" || state==="drama" || state==="romance" || state==="documentary"){
         this.props.getGenre(state);
@@ -36,7 +36,6 @@ class HomeContainer extends Component {
        }else{
          this.props.getPopularMovies()
        }
-
 
     }
 
@@ -53,9 +52,10 @@ class HomeContainer extends Component {
     }
 
     render() {
-        
+      
         return (
             <HomeContainerStyles>
+           
                 <Home
                  {...this.props.home}
                  searchMovies={this.searchMovies}
@@ -83,7 +83,9 @@ const mapDispatchToProps=(dispatch)=>({
     showLoadingSpinner:()=>{ dispatch(showLoadingSpinner())},
     searchMovies:(searchTerm)=>{ dispatch(searchMovies(searchTerm))},
     clearMovies:()=>{ dispatch(clearMovies())},
+    guestSession:()=>{dispatch(guestSession())},
     loadMoreMovies:(searchTerm,currentPage)=>{dispatch(loadMoreMovies(searchTerm,currentPage))}
 })
 
-export default connect(mapStateToProps,mapDispatchToProps)(HomeContainer);
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(HomeContainer));
+

@@ -6,7 +6,9 @@ import {
   GET_TRAILERS,
   GET_REVIEW,
   ADD_MOVIE,
-  REMOVE_MOVIE
+  REMOVE_MOVIE,
+  GET_RATED,
+  RATE_MOVIE
 } from "../actions/movieActions";
 import {checkDuplicate} from "../config"
 
@@ -19,7 +21,7 @@ const initialState = {
   trailers:null,
   review:{},
   watchlist:[],
-
+  ratings:[],
 };
 
 const movieReducer = (state = initialState, action) => {
@@ -32,7 +34,11 @@ const movieReducer = (state = initialState, action) => {
         loading: false,
         directors: action.payload.directors
       };
-      
+      case GET_RATED:
+        return {
+          ...state,
+          ratings:[...state.ratings,action.payload]
+        };
     case SHOW_LOADING_SPINNER:
       return {
         ...state,
@@ -74,6 +80,7 @@ const movieReducer = (state = initialState, action) => {
         ...state,
         watchlist:state.watchlist.filter(w=>w.id !== action.payload)
       }
+      
     default:
       return state;
   }

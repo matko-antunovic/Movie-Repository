@@ -1,4 +1,3 @@
-
 import React from "react";
 import Navigation from "../elements/Navigation/Navigation";
 import MovieInfo from "../elements/MovieInfo/MovieInfo";
@@ -8,8 +7,9 @@ import Spinner from "../elements/Spinner/Spinner";
 import Review from "../reusables/Review";
 import MovieSimilar from "../elements/MovieSimilar/MovieSimilar";
 import SmallInfo from "../elements/SmallInfo/SmallInfo";
+import Rating from "./Rating"
 import { limitText } from "../../config";
-import {MovieContainer,MovieGrid,MovieDetails,MovieTrailer,MovieReview,MovieReviewText,MovieSimilar2,MovieSimiliarLeftSide} from "./MovieStyles"
+import {MovieContainer,MovieGrid,RateMovie,MovieDetails,MovieTrailer,MovieReview,MovieReviewText,MovieSimilar2,MovieSimiliarLeftSide} from "./MovieStyles"
 
 
 
@@ -36,14 +36,19 @@ class Movie extends React.Component {
       review,
       similar,
       addToWatchlist,
-      watchlist
+      watchlist,
+      guestSessionId,
+      id,
+      ratings,
+      changeRating,
+      rate
     } = this.props;
 
     return (
       <MovieContainer>
     
         {movie ? (
-          <div>
+          <React.Fragment>
             <Navigation movie={movie.original_title} />
             <MovieInfo
               movie={movie}
@@ -51,12 +56,15 @@ class Movie extends React.Component {
               addToWatchlist={addToWatchlist}
               watchlist={watchlist}
             />
+            <RateMovie>
+           <span>Rate Movie :</span><Rating rate={rate} changeRating={changeRating} ratings={ratings} id={id} guestSessionId={guestSessionId} />
+           </RateMovie>
             <MovieInfoBar
               time={movie.runtime}
               budget={movie.budget}
               revenue={movie.revenue}
             />
-          </div>
+          </React.Fragment>
         ) : null}
         {actors ? (
           <MovieGrid>

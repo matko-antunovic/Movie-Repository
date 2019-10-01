@@ -55,6 +55,19 @@ export const MovieReviewText=styled.div`
  margin-right: 1rem;
 `
 
+export const RateMovie=styled.div`
+width:100%;
+display:flex;
+justify-content:center;
+align-items:baseline;
+padding:1rem;
+font-size:1.8rem;
+
+span{
+  margin:0 1rem;
+}
+`
+
 export const MovieSimilar2=styled.div`
   width: 100%;
   height: 25rem;

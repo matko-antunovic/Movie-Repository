@@ -1,6 +1,5 @@
 import axios from "axios";
 import { API_URL, API_KEY } from "../config";
-
 export const SHOW_LOADING_SPINNER = "SHOW_LOADING_SPINNER";
 export const GET_MOVIE = "GET_MOVIE";
 export const CLEAR_MOVIE = "CLEAR_MOVIE";
@@ -8,7 +7,9 @@ export const GET_SIMILAR = "GET_SIMILAR";
 export const GET_TRAILERS = "GET_TRAILERS";
 export const GET_REVIEW="GET_REVIEW"
 export const ADD_MOVIE="ADD_MOVIE"
+export const RATE_MOVIE="RATE_MOVIE"
 export const REMOVE_MOVIE="REMOVE_MOVIE"
+export const GET_RATED="GET_RATED"
 
 export const clearMovie = () => {
   return {
@@ -22,6 +23,30 @@ export const showLoadingSpinner = () => {
     payload: null
   };
 };
+
+export const rateMovie = (rating,token,params)=>async (dispatch)=> {
+  const body={
+    "value": rating
+  }
+  await axios.post(`${API_URL}movie/${params}/rating?api_key=${API_KEY}&guest_session_id=${token}`, body)
+  .then(res=> {
+    if(res.data.status_message === "Success."){
+      setTimeout(()=>dispatch(getRatedMovies(token)),5000)
+    }
+}
+)
+};
+
+
+export const getRatedMovies = (guestSessionId) => async (dispatch) => {
+  const endpoint = `${API_URL}guest_session/${guestSessionId}/rated/movies?api_key=${API_KEY}&timestamp=${new Date().getTime()}, { cache: "no-cache"}`;
+  const response = await axios(endpoint);
+  dispatch({
+    type: GET_RATED,
+    payload: response.data.results
+  });
+};
+
 
 export const getMovie = movieId => async dispatch => {
   let endpoint = `${API_URL}movie/${movieId}?api_key=${API_KEY}&language=eng-US`;
