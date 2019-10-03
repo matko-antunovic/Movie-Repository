@@ -45,7 +45,7 @@ const homeReducer = (state = initialState, action) => {
         case GET_RANDOM:
           return {
             ...state,
-            random:action.payload
+            random:action.payload.results[Math.floor(Math.random() * 20)]
           };
     case GET_UPCOMING_MOVIES:
       return {

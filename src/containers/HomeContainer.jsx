@@ -1,101 +1,158 @@
-import React, { Component } from 'react'
-import {connect} from "react-redux";
-import Home from "../components/Home/Home"
-import FontAwesome from "react-fontawesome"
-import RandomModal from "../components/elements/RandomModal/RandomModal"
-import {HomeContainerStyles,LoadMore} from "../components/Home/HomeStyles"
-import {withRouter} from "react-router-dom"
-import {getPopularMovies,getUpcomingMovies,getHighestRated,showLoadingSpinner,searchMovies,clearMovies,loadMoreMovies,getGenre,guestSession,getRandom} from "../actions/homeActions"
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import Home from "../components/Home/Home";
+import FontAwesome from "react-fontawesome";
+import RandomModal from "../components/elements/RandomModal/RandomModal";
+import { HomeContainerStyles, LoadMore } from "../components/Home/HomeStyles";
+import { withRouter } from "react-router-dom";
+import {
+  getPopularMovies,
+  getUpcomingMovies,
+  getHighestRated,
+  showLoadingSpinner,
+  searchMovies,
+  clearMovies,
+  loadMoreMovies,
+  getGenre,
+  guestSession,
+  getRandom
+} from "../actions/homeActions";
 
 class HomeContainer extends Component {
+  state = {
+    choosen: null,
+    randomOpen: false,
+    category: ""
+  };
 
-    state = {
-        choosen:null,
-        randomOpen:false
-      };
-    
-      handleClick=(e)=>{
-          e.preventDefault();
-          this.setState({choosen:e.target.name},()=>this.getMovies(this.state.choosen))
-      }
-    
+  handleClick = e => {
+    e.preventDefault();
+    this.setState({ choosen: e.target.name }, () =>
+      this.getMovies(this.state.choosen)
+    );
+  };
 
-    componentDidMount(){
-            this.props.showLoadingSpinner();
-            this.getMovies();
-       
+  componentDidMount() {
+    this.props.showLoadingSpinner();
+    this.getMovies();
+  }
+
+  getMovies = state => {
+    !this.props.home.authToken && this.props.guestSession();
+    this.props.clearMovies();
+    if (
+      state === "action" ||
+      state === "comedy" ||
+      state === "crime" ||
+      state === "drama" ||
+      state === "romance" ||
+      state === "documentary"
+    ) {
+      this.props.getGenre(state);
+    } else if (state === "upcoming") {
+      this.props.getUpcomingMovies();
+    } else if (state === "top rated") {
+      this.props.getHighestRated();
+    } else {
+      this.props.getPopularMovies();
     }
+  };
 
+  searchMovies = searchTerm => {
+    this.props.clearMovies();
+    this.props.showLoadingSpinner();
+    this.props.searchMovies(searchTerm);
+  };
 
-    getMovies=(state)=>{
-      !this.props.home.authToken && this.props.guestSession()
-        this.props.clearMovies();
-       if(state==="action" || state==="comedy" || state==="crime" || state==="drama" || state==="romance" || state==="documentary"){
-        this.props.getGenre(state);
-       }else if(state==="upcoming"){
-        this.props.getUpcomingMovies();
-       }else if(state==="top rated"){
-        this.props.getHighestRated();
-       }else{
-         this.props.getPopularMovies()
-       }
+  loadMoreMovies = () => {
+    const { searchTerm, currentPage } = this.props.home;
+    this.props.showLoadingSpinner();
+    this.props.loadMoreMovies(searchTerm, currentPage);
+  };
 
-    }
+  modalHandler = () => {
+    this.setState({ randomOpen: !this.state.randomOpen });
+  };
 
-    searchMovies=(searchTerm)=>{
-        this.props.clearMovies();
-        this.props.showLoadingSpinner();
-        this.props.searchMovies(searchTerm);
-    }
+  handleChange = e => {
+      this.setState({category:e.target.name},()=>console.log(this.state))
+  };
+  
+  handleSubmit=event=>{
+      event.preventDefault();
+      this.props.getRandom(this.state.category);
+  }
 
-    loadMoreMovies=()=>{
-        const {searchTerm,currentPage}=this.props.home;
-        this.props.showLoadingSpinner();
-        this.props.loadMoreMovies(searchTerm,currentPage)
-    }
+  render() {
+      const radioButtonsCategories=["drama","comedy","action","crime"];
+      let radioButtons=radioButtonsCategories.map(cat=>{
+          return  (
+              <React.Fragment>
+          <input name={cat} type="radio" onChange={this.handleChange} value={cat} checked={this.state.category===cat }/>
+          <label htmlFor={cat}>{cat}</label>
+          </React.Fragment>)
+      })
+    return (
+      <HomeContainerStyles>
+        <Home
+          {...this.props.home}
+          searchMovies={this.searchMovies}
+          loadMoreMovies={this.loadMoreMovies}
+          searchTerm={this.props.home.searchTerm}
+          handleClick={this.handleClick}
+          moviesToShow={this.props.home.moviesToShow}
+          title={this.state.choosen}
+        />
 
-    randomMovies=()=>{
-        this.setState({randomOpen:!this.state.randomOpen})
-    }
+        <LoadMore onClick={this.loadMoreMovies}>Load More</LoadMore>
 
-    render() {
-      
-        return (
-            <HomeContainerStyles>
-           
-                <Home
-                 {...this.props.home}
-                 searchMovies={this.searchMovies}
-                 loadMoreMovies={this.loadMoreMovies}
-                 searchTerm={this.props.home.searchTerm}
-                 handleClick={this.handleClick}
-                 moviesToShow={this.props.home.moviesToShow}
-                 title={this.state.choosen}
-                 />
-                 
-               <LoadMore onClick={this.loadMoreMovies}>Load More</LoadMore>
-               <RandomModal open={this.state.randomOpen}/>
-               <FontAwesome onClick={this.randomMovies} className="fas fa-random" size="2x" style={{cursor:"pointer",marginTop:".3rem", height:"6rem",width:"6rem", backgroundColor:"red",borderRadius:"50%",display:"flex",justifyContent:"center",alignItems:"center"}}/>
-            </HomeContainerStyles>
-        )
-    }
+        <form onSubmit={this.handleSubmit}>
+            {radioButtons}
+          <button type="submit">ROLL</button>
+        </form >
+      </HomeContainerStyles>
+    );
+  }
 }
 
-const mapStateToProps=(state)=>{
-    return {home:state.home}
-}
+const mapStateToProps = state => {
+  return { home: state.home };
+};
 
-const mapDispatchToProps=(dispatch)=>({
-    getPopularMovies:()=>{ dispatch(getPopularMovies())},
-    getUpcomingMovies:()=>{dispatch(getUpcomingMovies())},
-    getHighestRated:()=>{dispatch(getHighestRated())},
-    getGenre:(genre)=>{dispatch(getGenre(genre))},
-    showLoadingSpinner:()=>{ dispatch(showLoadingSpinner())},
-    searchMovies:(searchTerm)=>{ dispatch(searchMovies(searchTerm))},
-    clearMovies:()=>{ dispatch(clearMovies())},
-    guestSession:()=>{dispatch(guestSession())},
-    loadMoreMovies:(searchTerm,currentPage)=>{dispatch(loadMoreMovies(searchTerm,currentPage))},
-})
+const mapDispatchToProps = dispatch => ({
+  getPopularMovies: () => {
+    dispatch(getPopularMovies());
+  },
+  getUpcomingMovies: () => {
+    dispatch(getUpcomingMovies());
+  },
+  getHighestRated: () => {
+    dispatch(getHighestRated());
+  },
+  getGenre: genre => {
+    dispatch(getGenre(genre));
+  },
+  showLoadingSpinner: () => {
+    dispatch(showLoadingSpinner());
+  },
+  searchMovies: searchTerm => {
+    dispatch(searchMovies(searchTerm));
+  },
+  clearMovies: () => {
+    dispatch(clearMovies());
+  },
+  guestSession: () => {
+    dispatch(guestSession());
+  },
+  loadMoreMovies: (searchTerm, currentPage) => {
+    dispatch(loadMoreMovies(searchTerm, currentPage));
+  },
+  getRandom: genre => {
+    dispatch(getRandom(genre));
+  }
+});
 
-export default connect(mapStateToProps,mapDispatchToProps)(withRouter(HomeContainer));
-
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(HomeContainer));
