@@ -19,9 +19,15 @@ class MovieContainer extends Component {
   };
 
   componentDidMount() {
-
     const { movieId } = this.props.match.params;
     this.getMovie(movieId);
+    if(this.props.ratings.length>0){
+      const ratingCheck=this.props.ratings.filter(r=>r.id == movieId);
+      if(ratingCheck.length>0){
+        this.setState({rating:ratingCheck[0].rating})
+      }
+      
+    }
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -89,7 +95,7 @@ const mapStateToProps = state => {
     review: state.movie.review,
     watchlist: state.movie.watchlist,
     token: state.home.authToken,
-    ratings: state.movie.ratings.results
+    ratings: state.movie.ratings
   };
 };
 const mapDispatchToProps = dispatch => ({

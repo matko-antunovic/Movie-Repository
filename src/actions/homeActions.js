@@ -1,5 +1,4 @@
 import { API_URL, API_KEY } from "../config";
-
 import axios from "axios";
 export const GET_POPULAR_MOVIES = "GET_POPULAR_MOVIES";
 export const SEARCH_MOVIES = "SEARCH_MOVIES";
@@ -13,7 +12,7 @@ export const GET_HIGHETST_RATED="GET_HIGHETST_RATED"
 export const GET_DRAMA_MOVIES="GET_DRAMA_MOVIES"
 export const GET_GENRE="GET_GENRE"
 export const GET_TOKEN="GET_TOKEN"
-
+export const GET_RANDOM="GET_RANDOM"
 
 export const guestSession = () => async (dispatch) => {
   const endpoint = `${API_URL}authentication/guest_session/new?api_key=${API_KEY}`;
@@ -44,9 +43,6 @@ export const getUpcomingMovies = () => async (dispatch) => {
   });
 };
 
-
-
-
 export const getGenre = (genre) => async (dispatch) => {
   const genres={
     comedy:35,
@@ -61,6 +57,25 @@ export const getGenre = (genre) => async (dispatch) => {
 
   dispatch({
     type: GET_GENRE,
+    payload: response.data
+  });
+};
+
+
+export const getRandom = () => async (dispatch) => {
+  const genres={
+    comedy:35,
+    drama:18,
+    action:28,
+    documentary:99,
+    crime:80,
+    romance:10749
+  }
+  const endpoint =`${API_URL}discover/movie?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&page=1&with_genres=35`
+  const response = await axios(endpoint);
+
+  dispatch({
+    type: GET_RANDOM,
     payload: response.data
   });
 };

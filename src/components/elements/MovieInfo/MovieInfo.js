@@ -2,7 +2,7 @@ import React from 'react'
 import {IMAGE_BASE_URL, POSTER_SIZE} from "../../../config"
 import MovieThumb from "../MovieThumb/MovieThumb"
 import Add from "../../reusables/Add"
-import {MovieInfoStyles,MovieInfoHolder,MovieInfoTitle,MovieInfoContent,MovieInfoThumb,MovieInfoText,MovieInfoRating,MovieInfoScore,MovieInfoDirector,MovieAlert} from "./MovieInfoStyles"
+import {MovieInfoStyles,MovieInfoHolder,MovieInfoTitle,MovieInfoContent,MovieInfoThumb,MovieInfoText,MovieInfoRating,MovieInfoScore,MovieInfoDirector} from "./MovieInfoStyles"
 
 const MovieInfo = ({movie,directors,addToWatchlist,watchlist}) => {
     

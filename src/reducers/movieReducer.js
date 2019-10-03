@@ -8,7 +8,6 @@ import {
   ADD_MOVIE,
   REMOVE_MOVIE,
   GET_RATED,
-  RATE_MOVIE
 } from "../actions/movieActions";
 import {checkDuplicate} from "../config"
 
@@ -37,7 +36,7 @@ const movieReducer = (state = initialState, action) => {
       case GET_RATED:
         return {
           ...state,
-          ratings:[...state.ratings,action.payload]
+          ratings:action.payload
         };
     case SHOW_LOADING_SPINNER:
       return {
