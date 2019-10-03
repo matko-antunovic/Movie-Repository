@@ -4,7 +4,7 @@ import "./RandomModal.scss"
 const RandomModal = ({open}) => {
     return (
         <div className={`RandomModal ${open ? "show" : null}`}>
-           AKO KLIKNE NEK NADE SA KOMEDIJE NEKE
+           find some random comedy
         </div>
     )
 }
