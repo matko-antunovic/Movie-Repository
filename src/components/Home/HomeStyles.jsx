@@ -38,16 +38,50 @@ export const HomeFilter=styled.div`
 `
 
 export const LoadMore=styled.button`
-  padding: 1.5rem;
-  margin-top: 3rem;
+justify-self:end;
   background-color: rgba(243, 46, 46, 0.8);
   border: none;
-  border-radius: 5px;
+  border-radius: 50%;
+  width:5rem;
+  height:5rem;
+  font-weight:800;
+  transform:translate(50%,0);
+  border:3px dotted #d2b6b6;
   color: #fff;
   cursor: pointer;
   outline:none;
   :hover{
   opacity: .8;
 }
+
+`
+
+export const RandomButton=styled.button`
+justify-self:end;
+margin-right:20%;
+width:5rem;
+height:5rem;
+background-color:rgba(243,46,46,0.8);
+display:flex;
+justify-content:center;
+align-items:center;
+border-radius:50%;
+border:none;
+color: #fff;
+  cursor: pointer;
+  outline:none;
+  :hover{
+  opacity: .8;
+}
+span{
+  transform:translate(5%,5%);
+}
+`
+
+export const ButtonsContainer=styled.div`
+margin-top:5rem;
+width:100%;
+display:grid;
+grid-template-columns:repeat(2,1fr);
 
 `

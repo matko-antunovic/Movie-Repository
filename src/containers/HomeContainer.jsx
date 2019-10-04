@@ -2,9 +2,14 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Home from "../components/Home/Home";
 import FontAwesome from "react-fontawesome";
-import BackDrop from "../components/elements/BackDrop/BackDrop"
+import BackDrop from "../components/elements/BackDrop/BackDrop";
 import RandomModal from "../components/elements/RandomModal/RandomModal";
-import { HomeContainerStyles, LoadMore } from "../components/Home/HomeStyles";
+import {
+  HomeContainerStyles,
+  LoadMore,
+  RandomButton,
+  ButtonsContainer
+} from "../components/Home/HomeStyles";
 import { withRouter } from "react-router-dom";
 import {
   getPopularMovies,
@@ -38,11 +43,11 @@ class HomeContainer extends Component {
     this.getMovies();
   }
 
-    componentDidUpdate(prevProps, prevState){
-      if (this.props.home.random !== prevProps.home.random) {
-        this.props.history.push(`/${this.props.home.random.id}`);
-      }
+  componentDidUpdate(prevProps, prevState) {
+    if (this.props.home.random !== prevProps.home.random) {
+      this.props.history.push(`/${this.props.home.random.id}`);
     }
+  }
 
   getMovies = state => {
     !this.props.home.authToken && this.props.guestSession();
@@ -91,26 +96,36 @@ class HomeContainer extends Component {
   };
 
   render() {
-
     return (
-        <React.Fragment>
-        
-      <HomeContainerStyles>
-      <BackDrop bck={this.state.randomOpen} handleClick={this.modalHandler}/>
-        <Home
-          {...this.props.home}
-          searchMovies={this.searchMovies}
-          loadMoreMovies={this.loadMoreMovies}
-          searchTerm={this.props.home.searchTerm}
-          handleClick={this.handleClick}
-          moviesToShow={this.props.home.moviesToShow}
-          title={this.state.choosen}
-        />
-        <LoadMore onClick={this.loadMoreMovies}>Load More</LoadMore>
-        <div onClick={this.modalHandler}>RANDOM ROULLETE</div>
-      <RandomModal modalHandler={this.modalHandler} open={this.state.randomOpen} handleChange={this.handleChange} category={this.state.category} handleSubmit={this.handleSubmit}/>
-      </HomeContainerStyles>
-      </React.Fragment>
+      
+        <HomeContainerStyles>
+          <BackDrop
+            bck={this.state.randomOpen}
+            handleClick={this.modalHandler}
+          />
+          <Home
+            {...this.props.home}
+            searchMovies={this.searchMovies}
+            loadMoreMovies={this.loadMoreMovies}
+            searchTerm={this.props.home.searchTerm}
+            handleClick={this.handleClick}
+            moviesToShow={this.props.home.moviesToShow}
+            title={this.state.choosen}
+          />
+          <ButtonsContainer>
+            <LoadMore onClick={this.loadMoreMovies}>LOAD</LoadMore>
+            <RandomButton onClick={this.modalHandler}>
+              <FontAwesome className="fas fa-random" size="2x" />
+            </RandomButton>
+          </ButtonsContainer>
+          <RandomModal
+            open={this.state.randomOpen}
+            handleChange={this.handleChange}
+            category={this.state.category}
+            handleSubmit={this.handleSubmit}
+          />
+        </HomeContainerStyles>
+  
     );
   }
 }

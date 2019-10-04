@@ -5,6 +5,10 @@ export const SmallInfo=styled.div`
     height: 100%;
     width: 100%;
     background-color: black;
+    
+ @media(max-width:650px){
+   display:none;
+  }
 `
 
 export const SmallInfoDetails=styled.div`
@@ -35,9 +39,6 @@ export const SmallInfoImage=styled.div`
     cursor: pointer;
  }
 
- @media(max-width:650px){
-   display:none;
-  }
 `
 
 export const SmallInfoRating=styled.div`

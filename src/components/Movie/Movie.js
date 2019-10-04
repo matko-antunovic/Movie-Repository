@@ -8,6 +8,7 @@ import Review from "../reusables/Review";
 import MovieSimilar from "../elements/MovieSimilar/MovieSimilar";
 import SmallInfo from "../elements/SmallInfo/SmallInfo";
 import Rating from "./Rating"
+
 import { limitText } from "../../config";
 import {MovieContainer,MovieGrid,RateMovie,MovieDetails,MovieTrailer,MovieReview,MovieReviewText,MovieSimilar2,MovieSimiliarLeftSide} from "./MovieStyles"
 
@@ -95,7 +96,7 @@ class Movie extends React.Component {
 
             {similar.length > 0 ? (
               <React.Fragment>
-                <h2>Similar movies</h2>
+                <h2 style={{marginTop:"2rem"}}>Similar movies</h2>
                 <MovieSimilar2>
                   <MovieSimiliarLeftSide>
                     {similar.map((s, i) => {
@@ -111,7 +112,7 @@ class Movie extends React.Component {
                       return null;
                     })}
                   </MovieSimiliarLeftSide>
-                  <div>
+                  <div style={{width:"100%"}}>
                     <SmallInfo
                       movieSimilar0={similar[0]}
                       hovered={this.state.movieSimilar}

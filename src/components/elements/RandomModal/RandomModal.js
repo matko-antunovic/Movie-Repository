@@ -31,7 +31,7 @@ const RandomModal = ({
         <form onSubmit={handleSubmit}>
           {radioButtons}
           <button className="roll" type="submit" disabled={!category}>
-            ROLL
+            Roll
           </button>
         </form>
       </div>
