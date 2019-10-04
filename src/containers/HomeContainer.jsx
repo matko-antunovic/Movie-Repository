@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import Home from "../components/Home/Home";
 import FontAwesome from "react-fontawesome";
+import BackDrop from "../components/elements/BackDrop/BackDrop"
 import RandomModal from "../components/elements/RandomModal/RandomModal";
 import { HomeContainerStyles, LoadMore } from "../components/Home/HomeStyles";
 import { withRouter } from "react-router-dom";
@@ -36,6 +37,12 @@ class HomeContainer extends Component {
     this.props.showLoadingSpinner();
     this.getMovies();
   }
+
+    componentDidUpdate(prevProps, prevState){
+      if (this.props.home.random !== prevProps.home.random) {
+        this.props.history.push(`/${this.props.home.random.id}`);
+      }
+    }
 
   getMovies = state => {
     !this.props.home.authToken && this.props.guestSession();
@@ -75,25 +82,21 @@ class HomeContainer extends Component {
   };
 
   handleChange = e => {
-      this.setState({category:e.target.name},()=>console.log(this.state))
+    this.setState({ category: e.target.name });
   };
-  
-  handleSubmit=event=>{
-      event.preventDefault();
-      this.props.getRandom(this.state.category);
-  }
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.props.getRandom(this.state.category);
+  };
 
   render() {
-      const radioButtonsCategories=["drama","comedy","action","crime"];
-      let radioButtons=radioButtonsCategories.map(cat=>{
-          return  (
-              <React.Fragment>
-          <input name={cat} type="radio" onChange={this.handleChange} value={cat} checked={this.state.category===cat }/>
-          <label htmlFor={cat}>{cat}</label>
-          </React.Fragment>)
-      })
+
     return (
+        <React.Fragment>
+        
       <HomeContainerStyles>
+      <BackDrop bck={this.state.randomOpen} handleClick={this.modalHandler}/>
         <Home
           {...this.props.home}
           searchMovies={this.searchMovies}
@@ -103,14 +106,11 @@ class HomeContainer extends Component {
           moviesToShow={this.props.home.moviesToShow}
           title={this.state.choosen}
         />
-
         <LoadMore onClick={this.loadMoreMovies}>Load More</LoadMore>
-
-        <form onSubmit={this.handleSubmit}>
-            {radioButtons}
-          <button type="submit">ROLL</button>
-        </form >
+        <div onClick={this.modalHandler}>RANDOM ROULLETE</div>
+      <RandomModal modalHandler={this.modalHandler} open={this.state.randomOpen} handleChange={this.handleChange} category={this.state.category} handleSubmit={this.handleSubmit}/>
       </HomeContainerStyles>
+      </React.Fragment>
     );
   }
 }

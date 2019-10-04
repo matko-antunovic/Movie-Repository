@@ -12,7 +12,7 @@ const App=()=>{
         <div className="app">
             <Header/>
             <Switch>
-            <Route exact path="/" component={HomeContainer}/>
+            <Route exact path="/" render={(props)=> <HomeContainer key={props.match.path} />}/>
             <Route exact path="/:movieId"  render={(props) =><MovieContainer key={props.match.params.movieId} {...props}/>}/>  
             <Route component={NotFound}/>
             </Switch>

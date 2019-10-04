@@ -63,7 +63,6 @@ export const getGenre = (genre) => async (dispatch) => {
 
 
 export const getRandom = (genre) => async (dispatch) => {
-  console.log("GENTER",genre)
   const genres={
     comedy:35,
     drama:18,
@@ -75,7 +74,7 @@ export const getRandom = (genre) => async (dispatch) => {
   let page=Math.floor(Math.random() * 200); 
  
   const endpoint =`${API_URL}discover/movie?api_key=${API_KEY}&language=en-US&page=${page}&with_genres=${genres[genre]}`
-  console.log("endpoint" ,endpoint)
+
   const response = await axios(endpoint);
 
   dispatch({

@@ -2,6 +2,7 @@ import styled from "styled-components/macro";
 
 export const HomeStyles=styled.div`
   width: 100%;
+
 `
 export const HomeGrid=styled.div`
   max-width: 1280px;
