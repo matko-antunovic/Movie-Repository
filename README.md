@@ -6,8 +6,6 @@ About Project
 =============
 ### 
  - Used Redux Thunk to fetch data from an API and Redux for global state management
- - Users can search movies through the existing database, sort movies by category, preview details and add movies to a watchlist component 
- - CSS-in-JS ( s t yle d - c o m p o n e n t s ) used to style components
+ - Application allows users to search movies through the existing database, sort movies by category, preview details,rate movies,add movies to a watchlist component and get a random movie suggestions...
 
-
-[LIVE DEMO](https://moviedb-6f570.firebaseapp.com/)
+[LIVE DEMO](https://movies-dcd4a.firebaseapp.com/)
