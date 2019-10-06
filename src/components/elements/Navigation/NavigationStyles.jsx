@@ -1,9 +1,10 @@
 import styled from "styled-components/macro"
+import {grey2,font} from "../../reusables/Variables"
 
 export const NavigationContainer=styled.div`
   width: 100%;
   height: 50px;
-  background: #353535;
+  background-color: ${grey2};
   color: #fff;
   position: relative;
   padding: 20px;
@@ -23,7 +24,7 @@ export const NavigationContent=styled.div`
   margin: 0 auto;
   padding: 0 20px;
   p {
-  font-family: 'Abel', sans-serif;
+  font-family:${font};
   font-size: 22px;
   float: left;
   color: #fff;

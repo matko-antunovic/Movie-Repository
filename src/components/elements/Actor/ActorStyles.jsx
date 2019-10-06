@@ -1,4 +1,5 @@
 import styled from "styled-components/macro"
+import {font} from "../../reusables/Variables"
 
 export const ActorStyles=styled.div`
  box-sizing: border-box;
@@ -18,7 +19,7 @@ export const ActorStyles=styled.div`
   }
 `
 export const ActorName=styled.div`
-  font-family: 'Abel', sans-serif;
+    font-family: ${font};
   font-size: 22px;
   color:#fff;
   float: left;
@@ -27,7 +28,7 @@ export const ActorName=styled.div`
   box-sizing: border-box;
 `
 export const ActorCharacter=styled.div`
-  font-family: 'Abel', sans-serif;
+    font-family: ${font};
   font-size: 18px;
   color:#fff;
   float: left;

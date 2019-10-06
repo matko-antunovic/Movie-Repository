@@ -1,8 +1,9 @@
 import styled from "styled-components/macro";
+import {grey,font} from "../reusables/Variables"
 
 export const MovieContainer=styled.div`
   padding-bottom: 100px;
-  background-color: #1c1c1c;
+  background-color: ${grey};
 `
 
 export const MovieGrid=styled.div`
@@ -10,7 +11,7 @@ export const MovieGrid=styled.div`
   margin: 3rem auto;
   padding: 0 20px;
   color: black;
-  font-family: 'Abel', sans-serif;
+  font-family: ${font};
   font-size:1.3rem;
   color:#fff;
 
@@ -50,7 +51,7 @@ export const MovieReview=styled.div`
 export const MovieReviewText=styled.div`
  font-style: italic;
  font-size: 1.19rem;
- font-family: 'Abel', sans-serif;
+ font-family: ${font};
  margin-top: 2rem;
  margin-right: 1rem;
 `
@@ -66,6 +67,13 @@ font-size:1.8rem;
 span{
   margin:0 1rem;
 }
+
+@media(max-width:650px){
+  flex-direction:column;
+  align-items:center;
+  padding:. padding: 1rem 0;
+}
+
 `
 
 export const MovieSimilar2=styled.div`

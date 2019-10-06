@@ -1,4 +1,6 @@
 import styled from "styled-components/macro";
+import {font} from "../../reusables/Variables"
+
 
 export const HeroImageStyles = styled.div`
   background-size: 100%, cover !important;
@@ -32,12 +34,12 @@ export const HeroImageText = styled.div`
   background: rgba(0, 0, 0, 0);
   color: #fff;
   h1 {
-    font-family: "Abel", sans-serif;
+   font-family: ${font};
     font-size: 48px;
     color: #fff;
   }
   p {
-    font-family: "Abel", sans-serif;
+   font-family: ${font};
     font-size: 22px;
     line-height: 26px;
     color: #fff;

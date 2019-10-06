@@ -1,4 +1,5 @@
 import styled,{css} from "styled-components/macro"
+import {font} from "../../reusables/Variables"
 
 const elementStyle = css`
     height: 4.5rem;
@@ -29,7 +30,7 @@ ${elementStyle}
 `
 
 export const WatchListTitle=styled.div`
-font-family: 'Abel', sans-serif;
+font-family: ${font};
     font-size: 1rem;
     text-transform: capitalize;
     margin-left: .35rem;

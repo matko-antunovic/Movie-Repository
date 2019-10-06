@@ -12,23 +12,3 @@ export const FilterBarStyles = styled.div`
   }
 `;
 
-export const FilterBarButtonStyles = styled.button`
-  padding: 1rem;
-  color: #fff;
-  font-weight: 700;
-  background-color: rgba(243, 46, 46, 0.8);
-  border: none;
-  margin: 0.3rem;
-  text-transform: uppercase;
-  cursor: pointer;
-  border-radius: 0.5rem;
-  outline: none;
-
-  :hover {
-    filter: brightness(0.8);
-  }
-  @media (max-width: 750px) {
-    font-size:.7rem;
-    padding:.7rem;
-  }
-`;

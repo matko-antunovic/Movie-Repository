@@ -115,7 +115,7 @@ class HomeContainer extends Component {
           <ButtonsContainer>
             <LoadMore onClick={this.loadMoreMovies}>LOAD</LoadMore>
             <RandomButton onClick={this.modalHandler}>
-              <FontAwesome className="fas fa-random" size="2x" />
+              <FontAwesome name="random" className="fas fa-random" size="2x" />
             </RandomButton>
           </ButtonsContainer>
           <RandomModal

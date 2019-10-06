@@ -1,17 +1,17 @@
 import React from "react";
-import {FilterBarButtonStyles,FilterBarStyles} from "./FilterStyles"
+import {FilterBarStyles} from "./FilterStyles"
+import Add from "../../reusables/Add"
 
 const FilterBar=({handleClick})=> {
 
      const categories=["popular","upcoming","top rated","action","comedy","drama","documentary","crime", "romance"];
 
-     const click=(e)=>{
-
+     const onClick=(e)=>{
          handleClick(e)
      }
     return (
       <FilterBarStyles>
-          {categories.map((cat,i)=><FilterBarButtonStyles key={i} name={cat} onClick={click}>{cat}</FilterBarButtonStyles>)}
+          {categories.map((cat,i)=><Add radius={"8px"} key={i} name={cat} handleClick={onClick}>{cat}</Add>)}
       </FilterBarStyles>
     );
   }

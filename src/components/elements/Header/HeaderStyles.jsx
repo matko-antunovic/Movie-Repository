@@ -1,9 +1,10 @@
 import styled from "styled-components/macro";
+import {grey,font} from "../../reusables/Variables"
 
 export const HeaderStyles=styled.div`
   width: 100%;
   height: auto;
-  background: #1c1c1c;
+  background: ${grey};
   padding: 0 20px;
   box-sizing: border-box;
 `
@@ -25,7 +26,7 @@ export const Watchlist=styled.div`
   text-transform: uppercase;
   font-size: 1.2rem;
   font-weight: 600;
-  font-family: 'Abel', sans-serif;
+  font-family: ${font};
   cursor: pointer;
 
   :hover{

@@ -8,7 +8,7 @@ render(){
         <div>
             <div>
             <Ratings
-               widgetDimensions="25px"
+               widgetDimensions="20px"
             rating={this.props.rate}
             widgetRatedColors="red"
             changeRating={this.props.changeRating}

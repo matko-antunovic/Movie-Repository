@@ -1,13 +1,11 @@
 import React from 'react'
-import "./BackDrop.scss"
+import {BackDropStyles} from "./BackDropStyles"
 
 
 const BackDrop = ({bck,handleClick}) => {
-    console.log(bck)
+ 
     return (
-        <div onClick={handleClick} className={`${bck && "backdrop"}`}>
-            
-        </div>
+        <BackDropStyles onClick={handleClick} bck={bck}/>
     )
 }
 export default BackDrop

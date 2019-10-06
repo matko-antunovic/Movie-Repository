@@ -1,5 +1,6 @@
 import React from "react";
-import "./RandomModal.scss";
+import Add from "../../reusables/Add"
+import {RandomModalStyles,RandomModalStylesCategories,ListStyles} from "./RandomModalStyles"
 
 const RandomModal = ({
   open,
@@ -8,6 +9,7 @@ const RandomModal = ({
   handleSubmit,
   modalHandler
 }) => {
+
   const radioButtonsCategories = ["drama", "comedy", "action", "crime"];
   let radioButtons = radioButtonsCategories.map((cat, i) => {
     return (
@@ -24,18 +26,20 @@ const RandomModal = ({
     );
   });
   return (
-    <div className={`RandomModal ${open ? "show" : null}`}>
+    <RandomModalStyles open={open}>
       <h3>Movie Roullete</h3>
-      <div className="RandomModal-categories">
+      <RandomModalStylesCategories>
         <p>Select genre:</p>
         <form onSubmit={handleSubmit}>
+          <ListStyles>
           {radioButtons}
-          <button className="roll" type="submit" disabled={!category}>
+          </ListStyles>
+          <Add width="90%" color="black" type="submit" disabled={!category}>
             Roll
-          </button>
+          </Add>
         </form>
-      </div>
-    </div>
+      </RandomModalStylesCategories>
+    </RandomModalStyles>
   );
 };
 

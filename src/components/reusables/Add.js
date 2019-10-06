@@ -1,8 +1,8 @@
 import React from "react";
-import "./Add.css"
+import {ButtonStyles} from "./AddStyles"
 
-const Add=({addToWatchlist})=>{
-   return <button onClick={addToWatchlist} className="rmdb-watchlist"> + ADD TO WATCHLIST</button>
+const Add=({handleClick,children,radius,color,width, disabled,name})=>{
+   return <ButtonStyles color={color} width={width} name={name} radius={radius} onClick={handleClick} disabled={disabled}>{children}</ButtonStyles>
 }
 
 export default (Add);

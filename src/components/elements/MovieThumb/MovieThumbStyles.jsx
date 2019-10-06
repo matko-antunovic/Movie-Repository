@@ -1,4 +1,5 @@
 import styled from "styled-components/macro"
+import {grey,font} from "../../reusables/Variables"
 
 export const MovieThumbStyles=styled.div`
 img {
@@ -27,7 +28,7 @@ export const MovieThumbContainer=styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #1c1c1c;
+  background-color: ${grey};
   cursor: pointer;
 
   :hover {
@@ -40,7 +41,7 @@ export const MovieThumbName=styled.p`
   color: #fff;
   font-size: 1.3rem;
   font-weight: 500;
-  font-family:  'Abel', sans-serif;
+  font-family:  ${font};
   width: 100%;
   text-align: center;
   margin-top: .5rem;

@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import {grey2,font} from "../../reusables/Variables"
 
 export const SearchBarContainer=styled.div`
  width: 100%;
@@ -18,7 +19,7 @@ export const SearchBarContent=styled.div`
   max-width: 1280px;
   width: 100%;
   height: 55px;
-  background:#353535;
+  background:${grey2};
   margin: 0 auto;
   border-radius: 40px;
   position: relative;
@@ -33,7 +34,7 @@ export const FaSearch=styled.div`
 `
 
 export const SearchBarInput=styled.input`
- font-family: 'Abel', sans-serif;
+ font-family: ${font};
   font-size:2rem;
   width: 100%;
   position: absolute;

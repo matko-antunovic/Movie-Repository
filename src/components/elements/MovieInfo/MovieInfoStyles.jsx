@@ -1,5 +1,6 @@
 import styled from "styled-components/macro";
 import { IMAGE_BASE_URL, BACKDROP_SIZE } from "../../../config";
+import {font} from "../../reusables/Variables"
 
 export const MovieInfoStyles = styled.div`
   background-size: cover !important;
@@ -100,7 +101,7 @@ export const MovieInfoText = styled.div`
   left: 360px;
 
   h1 {
-    font-family: "Abel", sans-serif;
+    font-family: ${font};
     font-size: 3rem;
     margin: 0;
     width:70%;
@@ -113,7 +114,7 @@ export const MovieInfoText = styled.div`
     margin-bottom: 1rem;
   }
   p {
-    font-family: "Abel", sans-serif;
+    font-family: ${font};
     font-size: 18px;
     line-height: 26px;
   }

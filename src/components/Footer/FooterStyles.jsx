@@ -1,10 +1,11 @@
 import styled from "styled-components";
+import {font} from "../reusables/Variables"
 
 export const FooterContainer=styled.div`
    font-size: 1rem;
   margin-top: 5rem;
   width: 100%;
-  font-family: 'Abel', sans-serif;
+  font-family: ${font};
   background-color: black;
   display: flex;
   justify-content: center;
@@ -27,10 +28,6 @@ export const Divs=styled.div`
   }
 
   @media (max-width: 800px) {
-  /* display:flex;
-  flex-direction:row;
-  text-decoration: none;
-  justify-content:space-around; */
   padding:0;
   align-items:center;
   line-height:1.35;

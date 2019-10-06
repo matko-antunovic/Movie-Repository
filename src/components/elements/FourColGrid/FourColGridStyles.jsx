@@ -1,4 +1,5 @@
 import styled from "styled-components/macro"
+import {grey,font} from "../../reusables/Variables"
 
 export const FourColGridStyles=styled.div`
   max-width: 1280px;
@@ -6,7 +7,7 @@ export const FourColGridStyles=styled.div`
   padding: 0 20px;
 
   h1 {
-  font-family: 'Abel', sans-serif;
+    font-family: ${font};
   font-size:42px;
   color:#fff;
   margin: 1rem 0 4rem 0;
@@ -32,7 +33,7 @@ export const FourColGridContent=styled.div`
 `
 
 export const FourColGridElement=styled.div`
-  background: #1c1c1c;
+  background: ${grey};
   height: 100%;
   width: 100%;
   object-fit: cover;

@@ -1,13 +1,14 @@
 import styled from "styled-components/macro";
+import {grey2,font} from "../../reusables/Variables"
 
 export const MovieInfoBarStyles=styled.div`
   width: 100%;
   height: 105px;
-  background: #353535;
+  background: ${grey2};
   position: relative;
   padding: 25px 20px 0px 20px;
   box-sizing: border-box;
-  font-family: 'Abel', sans-serif;
+  font-family: ${font};
   font-size: 22px;
   @media (max-width: 875px) {
    height:auto;
